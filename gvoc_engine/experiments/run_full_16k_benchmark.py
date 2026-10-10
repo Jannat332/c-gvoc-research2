@@ -95,7 +95,8 @@ def evaluate_single_episode(
         B_t=1.0,
         N_tokens=180
     )
-    A_star = get_effective_intervention_set(ftype, p_res["layout_divergence"])
+    A_star = get_effective_intervention_set(ftype)
+    A_star_vals = {a.value if hasattr(a, "value") else str(a) for a in A_star}
 
     # Model token scaling
     tok_f = model_info["tok_factor"]
@@ -110,16 +111,22 @@ def evaluate_single_episode(
         res = evaluate_confidence_router(s_t, A_star, ftype)
     elif baseline == "gvoc":
         decision = gvoc_router.select_action(s_t)
-        act = decision["action"]
-        is_corr = 1 if (act in A_star or (act == GVoCAction.STOP.value and ftype == "normal_correct_state")) else 0
-        c_tokens = int(decision.get("predicted_cost", 100) * tok_f)
+        if isinstance(decision, tuple):
+            act_obj, meta = decision
+            act = act_obj.value if hasattr(act_obj, "value") else str(act_obj)
+            c_cost = meta.get("scores", {}).get(act, {}).get("cost", 1.0)
+            c_tokens = int(c_cost * 100 * tok_f)
+        else:
+            act = decision.get("action", "stop")
+            c_tokens = int(decision.get("predicted_cost", 100) * tok_f)
+        is_corr = 1 if (act in A_star_vals or (act == GVoCAction.STOP.value and ftype == "normal_correct_state")) else 0
         c_star = 0 if ftype == "normal_correct_state" else 80
         regret = max(0.0, (1 - is_corr) + 0.005 * max(0, c_tokens - c_star))
         res = {
             "baseline": "gvoc",
             "chosen_action": act,
             "is_correct": is_corr,
-            "is_in_effective_set": 1 if act in A_star else 0,
+            "is_in_effective_set": 1 if act in A_star_vals else 0,
             "tokens_spent": 250 + c_tokens,
             "oracle_regret": regret
         }

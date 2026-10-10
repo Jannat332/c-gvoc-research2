@@ -13,15 +13,25 @@ from gvoc_engine.config import DEFAULT_UTILITY_WEIGHTS
 
 
 class GVoCRouter:
-    """Action-value controller implementing Grounded Value-of-Compute Routing."""
+    """
+    Action-value controller implementing Grounded Value-of-Compute Routing.
+    Supports both standard point-estimate GVoC and Conservative Calibrated C-GVoC (LCB).
+    """
 
-    def __init__(self, utility_weights: Optional[Dict[str, float]] = None):
+    def __init__(
+        self,
+        utility_weights: Optional[Dict[str, float]] = None,
+        calibration_mode: str = "conservative",
+        kappa: float = 0.4
+    ):
         self.weights = utility_weights or DEFAULT_UTILITY_WEIGHTS
         self.lambda_r = self.weights["lambda_R"]
         self.lambda_c = self.weights["lambda_C"]
         self.lambda_s = self.weights["lambda_S"]
         self.tau_safe = self.weights["tau_safe"]
         self.epsilon = self.weights["epsilon"]
+        self.calibration_mode = calibration_mode  # "conservative" (C-GVoC) or "point_estimate" (original GVoC)
+        self.kappa = kappa
 
     def predict_outcome(
         self,
@@ -81,22 +91,56 @@ class GVoCRouter:
         p_correct = max(0.05, min(0.99, base_p + p_gain))
         return p_correct, cost
 
-    def compute_gvoc_value(
+    def estimate_advantage_uncertainty(
         self,
         state: GroundedState,
         action: Action
     ) -> float:
         """
-        V_hat(s_t, a) = [p_hat(s_t, a) - p_hat(s_t, stop)] / [C_hat(s_t, a) + epsilon]
+        Estimates epistemic standard error sigma_hat(s_t, a) from diagnostic state telemetry.
+        High consensus discrepancy, high layout divergence, and extreme token density increase uncertainty.
+        """
+        var_consensus = (1.0 - state.c_consensus) ** 2
+        var_evidence = state.d_evidence ** 2
+        var_layout = state.d_layout ** 2
+        sigma = math.sqrt(0.01 + 0.12 * var_consensus + 0.08 * var_evidence + 0.05 * var_layout)
+        return min(0.35, sigma)
+
+    def compute_conservative_gvoc_value(
+        self,
+        state: GroundedState,
+        action: Action
+    ) -> Tuple[float, float, float]:
+        """
+        Conservative Lower Confidence Bound (LCB) Value-of-Compute:
+        V_LCB(s_t, a) = max(0, Delta_P_hat - kappa * sigma_hat) / [C_hat + epsilon]
+        Returns: (v_lcb, delta_p_point, sigma_hat)
         """
         p_act, cost_act = self.predict_outcome(state, action)
         p_stop, _ = self.predict_outcome(state, Action.STOP)
 
         if ActionSpace.is_terminal(action):
-            return 0.0
+            return 0.0, 0.0, 0.0
 
         delta_p = p_act - p_stop
-        return delta_p / (cost_act + self.epsilon)
+        sigma = self.estimate_advantage_uncertainty(state, action)
+
+        if self.calibration_mode == "conservative":
+            delta_p_lcb = max(0.0, delta_p - self.kappa * sigma)
+        else:
+            delta_p_lcb = delta_p
+
+        v_lcb = delta_p_lcb / (cost_act + self.epsilon)
+        return v_lcb, delta_p, sigma
+
+    def compute_gvoc_value(
+        self,
+        state: GroundedState,
+        action: Action
+    ) -> float:
+        """Standard GVoC Value Ratio."""
+        v_lcb, _, _ = self.compute_conservative_gvoc_value(state, action)
+        return v_lcb
 
     def compute_utility(
         self,
@@ -129,54 +173,79 @@ class GVoCRouter:
         remaining_budget: int = 2000
     ) -> Tuple[Action, Dict[str, Any]]:
         """
-        Selects a_t^* = argmax_a U(s_t, a) subject to Cost <= B_t.
+        Selects a_t^* = argmax_a U(s_t, a) subject to Cost <= B_t under Conservative Value-of-Compute.
         Returns: (chosen_action, diagnostic_metadata)
         """
         p_stop, _ = self.predict_outcome(state, Action.STOP)
-        
-        # 1. Evaluate candidate active actions
+
+        # 1. Check for clean state where standard resolution already suffices
+        is_clean_state = (
+            self.calibration_mode == "conservative" and
+            state.d_layout < 0.15 and
+            state.d_evidence < 0.15 and
+            p_stop >= 0.70
+        )
+        if is_clean_state:
+            # Deterministically suppress spurious active interventions on clean inputs
+            metadata = {
+                "p_stop": p_stop,
+                "max_active_val": 0.0,
+                "clean_state_suppressed": True,
+                "scores": {
+                    Action.STOP.value: {"p_correct": p_stop, "cost": 0.0, "gvoc_val": 0.0, "utility": 0.0}
+                }
+            }
+            return Action.STOP, metadata
+
+        # 2. Evaluate candidate active actions
         action_scores: Dict[Action, Dict[str, float]] = {}
         best_active_action = Action.STOP
         max_active_val = -float("inf")
 
         for act in ActionSpace.ACTIVE_ACTIONS:
             p_pred, c_pred = self.predict_outcome(state, act)
-            gvoc_val = self.compute_gvoc_value(state, act)
+            gvoc_val, delta_p, sigma = self.compute_conservative_gvoc_value(state, act)
             util = self.compute_utility(state, act)
 
             action_scores[act] = {
                 "p_correct": p_pred,
                 "cost": c_pred,
                 "gvoc_val": gvoc_val,
+                "delta_p": delta_p,
+                "sigma": sigma,
                 "utility": util
             }
 
-            # Enforce budget constraint
+            # Enforce budget constraint and minimum post-intervention feasibility
             estimated_tokens = int(c_pred * 150)
-            if estimated_tokens <= remaining_budget and gvoc_val > max_active_val:
+            is_feasible = (p_pred >= 0.50) if self.calibration_mode == "conservative" else True
+            if estimated_tokens <= remaining_budget and is_feasible and gvoc_val > max_active_val:
                 max_active_val = gvoc_val
                 best_active_action = act
 
-        # 2. Evaluate terminal actions (Stop vs Abstain)
+        # 3. Evaluate terminal actions (Stop vs Abstain)
         stop_util = self.compute_utility(state, Action.STOP)
         abstain_util = self.compute_utility(state, Action.ABSTAIN)
         action_scores[Action.STOP] = {"p_correct": p_stop, "cost": 0.0, "gvoc_val": 0.0, "utility": stop_util}
         action_scores[Action.ABSTAIN] = {"p_correct": 0.0, "cost": 0.0, "gvoc_val": 0.0, "utility": abstain_util}
 
         # Terminal Decision Logic
-        if max_active_val <= 0.0:
-            # Active repairs do not yield positive value
+        significance_threshold = 0.02 if self.calibration_mode == "conservative" else 0.0
+        if max_active_val <= significance_threshold:
+            # Active repairs do not yield certified positive value
             if p_stop < self.tau_safe and abstain_util > stop_util:
                 chosen = Action.ABSTAIN
             else:
                 chosen = Action.STOP
         else:
-            # Active repair yields positive marginal improvement
+            # Active repair yields verified positive marginal improvement
             chosen = best_active_action
 
         metadata = {
             "p_stop": p_stop,
             "max_active_val": max_active_val,
-            "scores": {k.value: v for k, v in action_scores.items()}
+            "calibration_mode": self.calibration_mode,
+            "scores": {k.value if hasattr(k, "value") else str(k): v for k, v in action_scores.items()}
         }
         return chosen, metadata
+

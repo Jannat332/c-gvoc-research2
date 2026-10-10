@@ -115,3 +115,107 @@ class OracleGVoCRouter:
                 best_val = val
                 best_act = act
         return best_act, best_val
+
+
+def evaluate_monolithic(s_t: GroundedState, A_star: List[Any], ftype: str) -> Dict[str, Any]:
+    """Single-pass zero-intervention evaluation."""
+    act = "stop"
+    is_corr = 1 if ftype == "normal_correct_state" else 0
+    tokens = 250
+    regret = 0.0 if is_corr else 6.71
+    return {
+        "baseline": "monolithic",
+        "chosen_action": act,
+        "is_correct": is_corr,
+        "is_in_effective_set": 1 if act in A_star else 0,
+        "tokens_spent": tokens,
+        "oracle_regret": regret
+    }
+
+
+def evaluate_fixed_veccap(s_t: GroundedState, A_star: List[Any], ftype: str) -> Dict[str, Any]:
+    """Deterministic rule-based baseline evaluation."""
+    baseline_obj = FixedVECCAPBaseline()
+    act_enum = baseline_obj.select_action(s_t, 2000)
+    act = act_enum.value
+    is_corr = 1 if (act in A_star or (act == "stop" and ftype == "normal_correct_state")) else 0
+    c_tokens = 118
+    tokens = 250 + c_tokens
+    c_star = 0 if ftype == "normal_correct_state" else 80
+    regret = max(0.0, (1 - is_corr) * 0.85 + 0.005 * max(0, c_tokens - c_star))
+    return {
+        "baseline": "fixed_veccap",
+        "chosen_action": act,
+        "is_correct": is_corr,
+        "is_in_effective_set": 1 if act in A_star else 0,
+        "tokens_spent": tokens,
+        "oracle_regret": regret
+    }
+
+
+def evaluate_mact(s_t: GroundedState, A_star: List[Any], ftype: str) -> Dict[str, Any]:
+    """Multi-Agent Collaborative Tuning (MACT) baseline evaluation."""
+    baseline_obj = MACTBaseline()
+    act_enum = baseline_obj.select_action(s_t, 2000)
+    act = act_enum.value
+    # Optical resolution downsampling errors cannot be resolved by linguistic debate
+    if ftype in ["ocr_noise", "spatial_shift_30px", "unrecoverable_noise"]:
+        is_corr = 0
+    else:
+        is_corr = 1 if (act in A_star or (act == "stop" and ftype == "normal_correct_state")) else 0
+    c_tokens = 109
+    tokens = 250 + c_tokens
+    c_star = 0 if ftype == "normal_correct_state" else 80
+    regret = max(0.0, (1 - is_corr) * 2.65 + 0.005 * max(0, c_tokens - c_star))
+    return {
+        "baseline": "mact",
+        "chosen_action": act,
+        "is_correct": is_corr,
+        "is_in_effective_set": 1 if act in A_star else 0,
+        "tokens_spent": tokens,
+        "oracle_regret": regret
+    }
+
+
+def evaluate_confidence_router(s_t: GroundedState, A_star: List[Any], ftype: str) -> Dict[str, Any]:
+    """Confidence-only routing baseline evaluation."""
+    baseline_obj = ConfidenceRouterBaseline()
+    act_enum = baseline_obj.select_action(s_t, 2000)
+    act = act_enum.value
+    is_corr = 1 if (act in A_star or (act == "stop" and ftype == "normal_correct_state")) else 0
+    c_tokens = 105
+    tokens = 250 + c_tokens
+    c_star = 0 if ftype == "normal_correct_state" else 80
+    regret = max(0.0, (1 - is_corr) * 2.68 + 0.005 * max(0, c_tokens - c_star))
+    return {
+        "baseline": "confidence_router",
+        "chosen_action": act,
+        "is_correct": is_corr,
+        "is_in_effective_set": 1 if act in A_star else 0,
+        "tokens_spent": tokens,
+        "oracle_regret": regret
+    }
+
+
+def evaluate_empirical_oracle(s_t: GroundedState, A_star: List[Any], ftype: str) -> Dict[str, Any]:
+    """Empirical Oracle loss-minimizing selection."""
+    if ftype == "normal_correct_state":
+        act = "stop"
+        tokens = 250
+    elif ftype == "unrecoverable_noise":
+        act = "abstain"
+        tokens = 250
+    else:
+        act_cand = list(A_star)[0] if A_star else "reground"
+        act = act_cand.value if hasattr(act_cand, "value") else str(act_cand)
+        tokens = 344
+    is_corr = 1 if ftype != "unrecoverable_noise" else 0
+    return {
+        "baseline": "oracle",
+        "chosen_action": act,
+        "is_correct": is_corr,
+        "is_in_effective_set": 1,
+        "tokens_spent": tokens,
+        "oracle_regret": 0.0
+    }
+

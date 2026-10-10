@@ -83,9 +83,8 @@
 \@LN{69}{0}
 \@LN{70}{0}
 \citation{mirage2026illusion}
-\citation{attribution2026coordinatefree}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{tab:headline_benchmark}{{1}{2}{\textbf {Headline Benchmark Performance ($N = 16,000$ Queries).} $^\dagger p < 0.001$ vs.\ MACT. The Deterministic Rule achieves peak raw accuracy (89.0\%) by intervening on $>85\%$ of queries (368 tokens). \textsc {GVoC} is a cost-aware selective policy that balances accuracy (70.2\%) with low token consumption (274) and lowest regret (0.412). Complete per-dataset breakdowns appear in Appendix Table~\ref {tab:master_benchmark_app}}{table.caption.1}{}}
+\newlabel{tab:headline_benchmark}{{1}{2}{\textbf {Headline Benchmark Performance ($N = 16,000$ Queries).} $^\dagger p < 0.001$ vs.\ MACT. The Deterministic Rule achieves peak raw accuracy (89.0\%) by intervening aggressively on $>85\%$ of queries (368 tokens). C-\textsc {GVoC} integrates epistemic uncertainty penalization ($\kappa = 0.4$), eliminating spurious Type-I interventions on clean documents and achieving 70.4\% accuracy with only 258 tokens ($-28.1\%$) and lowest regret (0.395). Full breakdowns appear in Appendix Table~\ref {tab:master_benchmark_app}}{table.caption.1}{}}
 \def\@LN@column{1}
 \@LN{71}{1}
 \@LN{72}{1}
@@ -127,10 +126,10 @@
 \@LN{105}{1}
 \@LN{106}{1}
 \@LN{107}{1}
-\newlabel{eq:voc_ratio}{{1}{2}{Intervention Value}{equation.1}{}}
 \@LN{108}{1}
 \@LN{109}{1}
 \@LN{110}{1}
+\newlabel{eq:voc_ratio}{{1}{2}{Conservative Intervention Value (C-\textsc {GVoC})}{equation.1}{}}
 \@LN{111}{1}
 \@LN{112}{1}
 \@LN{113}{1}
@@ -157,17 +156,16 @@
 \@LN{134}{1}
 \@LN{135}{1}
 \@LN{136}{1}
+\@LN{137}{1}
+\@LN{138}{1}
+\citation{attribution2026coordinatefree}
 \def\@LN@column{1}
-\@LN{137}{2}
-\newlabel{sec:experiments}{{4}{3}{Experiments}{section.4}{}}
-\@LN{138}{2}
 \@LN{139}{2}
 \@LN{140}{2}
 \@LN{141}{2}
 \@LN{142}{2}
 \@LN{143}{2}
 \@LN{144}{2}
-\newlabel{eq:regret}{{2}{3}{Experimental Setup}{equation.2}{}}
 \@LN{145}{2}
 \@LN{146}{2}
 \@LN{147}{2}
@@ -176,6 +174,7 @@
 \@LN{150}{2}
 \@LN{151}{2}
 \@LN{152}{2}
+\newlabel{sec:experiments}{{4}{3}{Experiments}{section.4}{}}
 \@LN{153}{2}
 \@LN{154}{2}
 \@LN{155}{2}
@@ -183,6 +182,7 @@
 \@LN{157}{2}
 \@LN{158}{2}
 \@LN{159}{2}
+\newlabel{eq:regret}{{2}{3}{Experimental Setup}{equation.2}{}}
 \@LN{160}{2}
 \@LN{161}{2}
 \@LN{162}{2}
@@ -207,8 +207,8 @@
 \@LN{181}{2}
 \@LN{182}{2}
 \@LN{183}{2}
-\def\@LN@column{2}
 \@LN{184}{2}
+\def\@LN@column{2}
 \@LN{185}{2}
 \@LN{186}{2}
 \@LN{187}{2}
@@ -254,6 +254,11 @@
 \@LN{227}{2}
 \@LN{228}{2}
 \@LN{229}{2}
+\@LN{230}{2}
+\@LN{231}{2}
+\@LN{232}{2}
+\@LN{233}{2}
+\@LN{234}{2}
 \citation{snell2024scaling,tong2026diversity,wan2026testtimesurvey,yu2025visual,tableqa2025naacl,zhou2026awm,zheng2026towards,wu2026what}
 \citation{mathew2021docvqa,masry2022chartqa,tablebench2024,wang2024mmlongbenchdoc,cui2021document,citevqa2026,yu2026dochop}
 \citation{ye2023ureader,liu2024llavanext,blecher2023nougat,appalaraju2021docformer}
@@ -263,15 +268,10 @@
 \citation{howard1966information,horvitz1988reasoning,russell1991right}
 \citation{geifman2017selective,kamath2020selective}
 \def\@LN@column{1}
-\@LN{230}{3}
-\@LN{231}{3}
-\newlabel{sec:discussion}{{5}{4}{What Test-Time Scaling Should Spend Compute On}{section.5}{}}
-\@LN{232}{3}
-\@LN{233}{3}
-\@LN{234}{3}
 \@LN{235}{3}
 \@LN{236}{3}
 \@LN{237}{3}
+\newlabel{sec:discussion}{{5}{4}{What Test-Time Scaling Should Spend Compute On}{section.5}{}}
 \@LN{238}{3}
 \@LN{239}{3}
 \@LN{240}{3}
@@ -295,13 +295,13 @@
 \@LN{258}{3}
 \@LN{259}{3}
 \@LN{260}{3}
-\newlabel{sec:related_work}{{6}{4}{Related Work}{section.6}{}}
 \@LN{261}{3}
 \@LN{262}{3}
 \@LN{263}{3}
 \@LN{264}{3}
 \@LN{265}{3}
 \@LN{266}{3}
+\newlabel{sec:related_work}{{6}{4}{Related Work}{section.6}{}}
 \@LN{267}{3}
 \@LN{268}{3}
 \@LN{269}{3}
@@ -315,11 +315,11 @@
 \@LN{277}{3}
 \@LN{278}{3}
 \@LN{279}{3}
-\def\@LN@column{2}
 \@LN{280}{3}
 \@LN{281}{3}
 \@LN{282}{3}
 \@LN{283}{3}
+\def\@LN@column{2}
 \@LN{284}{3}
 \@LN{285}{3}
 \@LN{286}{3}
@@ -332,21 +332,21 @@
 \@LN{293}{3}
 \@LN{294}{3}
 \@LN{295}{3}
-\newlabel{sec:limitations}{{7}{4}{Limitations}{section.7}{}}
 \@LN{296}{3}
 \@LN{297}{3}
 \@LN{298}{3}
 \@LN{299}{3}
 \@LN{300}{3}
 \@LN{301}{3}
+\newlabel{sec:limitations}{{7}{4}{Limitations}{section.7}{}}
 \@LN{302}{3}
-\newlabel{sec:conclusion}{{8}{4}{Conclusion}{section.8}{}}
 \@LN{303}{3}
 \@LN{304}{3}
 \@LN{305}{3}
 \@LN{306}{3}
 \@LN{307}{3}
 \@LN{308}{3}
+\newlabel{sec:conclusion}{{8}{4}{Conclusion}{section.8}{}}
 \@LN{309}{3}
 \@LN{310}{3}
 \@LN{311}{3}
@@ -355,13 +355,19 @@
 \@LN{314}{3}
 \@LN{315}{3}
 \@LN{316}{3}
-\newlabel{sec:ethics}{{9}{4}{Ethics Statement}{section.9}{}}
 \@LN{317}{3}
 \@LN{318}{3}
 \@LN{319}{3}
 \@LN{320}{3}
 \@LN{321}{3}
 \@LN{322}{3}
+\newlabel{sec:ethics}{{9}{4}{Ethics Statement}{section.9}{}}
+\@LN{323}{3}
+\@LN{324}{3}
+\@LN{325}{3}
+\@LN{326}{3}
+\@LN{327}{3}
+\@LN{328}{3}
 \bibstyle{acl_natbib}
 \bibdata{custom}
 \bibcite{mirage2026illusion}{{1}{2026}{{Adams et~al.}}{{}}}
@@ -393,12 +399,6 @@
 \bibcite{wang2024mmlongbenchdoc}{{27}{2024}{{Wang et~al.}}{{}}}
 \bibcite{wei2022chain}{{28}{2022}{{Wei et~al.}}{{Wei, Wang, Schuurmans, Bosma, Xia, Chi, Le, and Zhou}}}
 \def\@LN@column{1}
-\@LN{323}{4}
-\@LN{324}{4}
-\@LN{325}{4}
-\@LN{326}{4}
-\@LN{327}{4}
-\@LN{328}{4}
 \@LN{329}{4}
 \@LN{330}{4}
 \@LN{331}{4}
@@ -446,13 +446,13 @@
 \@LN{373}{4}
 \@LN{374}{4}
 \@LN{375}{4}
-\def\@LN@column{2}
 \@LN{376}{4}
 \@LN{377}{4}
 \@LN{378}{4}
 \@LN{379}{4}
 \@LN{380}{4}
 \@LN{381}{4}
+\def\@LN@column{2}
 \@LN{382}{4}
 \@LN{383}{4}
 \@LN{384}{4}
@@ -502,6 +502,12 @@
 \@LN{428}{4}
 \@LN{429}{4}
 \@LN{430}{4}
+\@LN{431}{4}
+\@LN{432}{4}
+\@LN{433}{4}
+\@LN{434}{4}
+\@LN{435}{4}
+\@LN{436}{4}
 \bibcite{wu2026what}{{29}{2026}{{Wu et~al.}}{{Wu, Ding, Mukherjee, and Yang}}}
 \bibcite{ye2023ureader}{{30}{2023}{{Ye et~al.}}{{}}}
 \bibcite{yu2025visual}{{31}{2025}{{Yu et~al.}}{{}}}
@@ -511,12 +517,6 @@
 \bibcite{zheng2026towards}{{35}{2026}{{Zheng et~al.}}{{Zheng, Liu, Chen, Zeng, Che, Huang, and Guo}}}
 \bibcite{zhou2026awm}{{36}{2026}{{Zhou et~al.}}{{Zhou, Zhu, Liu, Yang, Lu, Dong, Tang, and Kharlamov}}}
 \def\@LN@column{1}
-\@LN{431}{5}
-\@LN{432}{5}
-\@LN{433}{5}
-\@LN{434}{5}
-\@LN{435}{5}
-\@LN{436}{5}
 \@LN{437}{5}
 \@LN{438}{5}
 \@LN{439}{5}
@@ -554,17 +554,17 @@
 \@LN{471}{5}
 \@LN{472}{5}
 \@LN{473}{5}
+\@LN{474}{5}
+\@LN{475}{5}
+\@LN{476}{5}
+\@LN{477}{5}
+\@LN{478}{5}
+\@LN{479}{5}
 \def\@LN@column{2}
 \def\@LN@column{1}
-\@LN{474}{6}
-\@LN{475}{6}
-\newlabel{app:proofs}{{A}{7}{Formal Mathematical Formulations and Theoretical Derivations}{appendix.A}{}}
-\@LN{476}{6}
-\@LN{477}{6}
-\@LN{478}{6}
-\@LN{479}{6}
 \@LN{480}{6}
 \@LN{481}{6}
+\newlabel{app:proofs}{{A}{7}{Formal Mathematical Formulations and Theoretical Derivations}{appendix.A}{}}
 \@LN{482}{6}
 \@LN{483}{6}
 \@LN{484}{6}
@@ -602,14 +602,14 @@
 \@LN{516}{6}
 \@LN{517}{6}
 \@LN{518}{6}
-\def\@LN@column{2}
-\newlabel{alg:gvoc_policy}{{1}{7}{\textsc {GVoC} Online Decision Policy}{algorithm.1}{}}
 \@LN{519}{6}
 \@LN{520}{6}
 \@LN{521}{6}
 \@LN{522}{6}
 \@LN{523}{6}
 \@LN{524}{6}
+\def\@LN@column{2}
+\newlabel{alg:gvoc_policy}{{1}{7}{\textsc {GVoC} Online Decision Policy}{algorithm.1}{}}
 \@LN{525}{6}
 \@LN{526}{6}
 \@LN{527}{6}
@@ -626,11 +626,11 @@
 \@LN{538}{6}
 \@LN{539}{6}
 \@LN{540}{6}
+\@LN{541}{6}
+\@LN{542}{6}
+\@LN{543}{6}
+\@LN{544}{6}
 \def\@LN@column{1}
-\@LN{541}{7}
-\@LN{542}{7}
-\@LN{543}{7}
-\@LN{544}{7}
 \@LN{545}{7}
 \@LN{546}{7}
 \@LN{547}{7}
@@ -638,7 +638,6 @@
 \@LN{549}{7}
 \@LN{550}{7}
 \@LN{551}{7}
-\newlabel{thm:dpi}{{2}{8}{Resolution-Limited Perceptual Sufficiency under DPI}{theorem.2}{}}
 \@LN{552}{7}
 \@LN{553}{7}
 \@LN{554}{7}
@@ -646,6 +645,7 @@
 \@LN{556}{7}
 \@LN{557}{7}
 \@LN{558}{7}
+\newlabel{thm:dpi}{{2}{8}{Resolution-Limited Perceptual Sufficiency under DPI}{theorem.2}{}}
 \@LN{559}{7}
 \@LN{560}{7}
 \@LN{561}{7}
@@ -672,11 +672,11 @@
 \@LN{582}{7}
 \@LN{583}{7}
 \@LN{584}{7}
-\def\@LN@column{2}
 \@LN{585}{7}
 \@LN{586}{7}
 \@LN{587}{7}
 \@LN{588}{7}
+\def\@LN@column{2}
 \@LN{589}{7}
 \@LN{590}{7}
 \@LN{591}{7}
@@ -724,11 +724,11 @@
 \@LN{633}{7}
 \@LN{634}{7}
 \@LN{635}{7}
+\@LN{636}{7}
+\@LN{637}{7}
+\@LN{638}{7}
+\@LN{639}{7}
 \def\@LN@column{1}
-\@LN{636}{8}
-\@LN{637}{8}
-\@LN{638}{8}
-\@LN{639}{8}
 \@LN{640}{8}
 \@LN{641}{8}
 \@LN{642}{8}
@@ -760,7 +760,6 @@
 \@LN{668}{8}
 \@LN{669}{8}
 \@LN{670}{8}
-\newlabel{app:telemetry}{{B}{9}{Exhaustive State Telemetry Feature Specification}{appendix.B}{}}
 \@LN{671}{8}
 \@LN{672}{8}
 \@LN{673}{8}
@@ -768,9 +767,10 @@
 \@LN{675}{8}
 \@LN{676}{8}
 \@LN{677}{8}
-\def\@LN@column{2}
+\newlabel{app:telemetry}{{B}{9}{Exhaustive State Telemetry Feature Specification}{appendix.B}{}}
 \@LN{678}{8}
 \@LN{679}{8}
+\def\@LN@column{2}
 \@LN{680}{8}
 \@LN{681}{8}
 \@LN{682}{8}
@@ -782,7 +782,6 @@
 \@LN{688}{8}
 \@LN{689}{8}
 \@LN{690}{8}
-\newlabel{app:hardware}{{C}{9}{Hardware Infrastructure, Controller Overhead, and Latency Accounting}{appendix.C}{}}
 \@LN{691}{8}
 \@LN{692}{8}
 \@LN{693}{8}
@@ -790,6 +789,7 @@
 \@LN{695}{8}
 \@LN{696}{8}
 \@LN{697}{8}
+\newlabel{app:hardware}{{C}{9}{Hardware Infrastructure, Controller Overhead, and Latency Accounting}{appendix.C}{}}
 \@LN{698}{8}
 \@LN{699}{8}
 \@LN{700}{8}
@@ -804,44 +804,55 @@
 \@LN{709}{8}
 \@LN{710}{8}
 \@LN{711}{8}
-\newlabel{app:models}{{D}{9}{Model-Stratified Performance Breakdown}{appendix.D}{}}
 \@LN{712}{8}
 \@LN{713}{8}
 \@LN{714}{8}
 \@LN{715}{8}
 \@LN{716}{8}
-\newlabel{app:prompts}{{E}{9}{Prompt Templates and Baseline Specifications}{appendix.E}{}}
 \@LN{717}{8}
 \@LN{718}{8}
+\newlabel{app:models}{{D}{9}{Model-Stratified Performance Breakdown}{appendix.D}{}}
+\@LN{719}{8}
+\@LN{720}{8}
+\@LN{721}{8}
 \newlabel{tab:telemetry_full}{{2}{10}{\textbf {Exhaustive Specification of the 16-Dimensional Diagnostic State Telemetry Vector $f(s_t)$.} Features are normalized to $[0, 1]$ and extracted in $< 0.5$ ms during decoding}{table.caption.11}{}}
 \def\@LN@column{1}
 \newlabel{tab:controller_overhead}{{3}{10}{\textbf {Computational Overhead and Resource Utilization of \textsc {GVoC} Decision Controller.} Evaluated across 5,000 steps on an AMD EPYC CPU and NVIDIA H100 GPU}{table.caption.14}{}}
-\@LN{719}{9}
-\@LN{720}{9}
-\@LN{721}{9}
 \@LN{722}{9}
 \@LN{723}{9}
+\newlabel{app:prompts}{{E}{10}{Prompt Templates and Baseline Specifications}{appendix.E}{}}
 \@LN{724}{9}
-\newlabel{app:ablations}{{F}{10}{Component Ablations and Sensitivity Sweeps}{appendix.F}{}}
 \@LN{725}{9}
 \@LN{726}{9}
 \@LN{727}{9}
+\def\@LN@column{2}
 \@LN{728}{9}
 \@LN{729}{9}
-\def\@LN@column{2}
 \@LN{730}{9}
 \@LN{731}{9}
+\newlabel{app:ablations}{{F}{10}{Component Ablations and Sensitivity Sweeps}{appendix.F}{}}
 \@LN{732}{9}
 \@LN{733}{9}
-\newlabel{app:stress_test}{{G}{10}{Unanswerable Stress Test and Forensic Error Taxonomy}{appendix.G}{}}
 \@LN{734}{9}
 \@LN{735}{9}
-\newlabel{app:master_benchmark}{{H}{10}{Master Head-to-Head Benchmark Matrix}{appendix.H}{}}
 \@LN{736}{9}
 \@LN{737}{9}
 \@LN{738}{9}
+\@LN{739}{9}
+\@LN{740}{9}
+\@LN{741}{9}
+\@LN{742}{9}
+\@LN{743}{9}
+\@LN{744}{9}
+\newlabel{app:stress_test}{{G}{10}{Unanswerable Stress Test and Forensic Error Taxonomy}{appendix.G}{}}
+\@LN{745}{9}
+\@LN{746}{9}
+\newlabel{app:master_benchmark}{{H}{10}{Master Head-to-Head Benchmark Matrix}{appendix.H}{}}
+\@LN{747}{9}
+\@LN{748}{9}
+\@LN{749}{9}
 \newlabel{tab:model_breakdowns}{{4}{11}{\textbf {Model-Stratified Performance Breakdowns Across All 4 Foundation Backbones ($N = 4,000$ each).}}{table.caption.15}{}}
-\newlabel{tab:ablations}{{5}{11}{\textbf {Systematic Component Ablation Study ($N = 2,000$ Stratified Subset).} Full \textsc {GVoC} scores 70.5\% / 272 tokens on this stratified ablation split, consistent with 70.2\% / 274 tokens across the full 16,000-query benchmark (Table~\ref {tab:headline_benchmark}). Removing cost normalization ($\mathcal {V} = \Delta P_a$) yields negligible accuracy gain (+0.6\%) while inflating token cost by +51.5\% and regret by 4.5$\times $}{table.caption.19}{}}
+\newlabel{tab:ablations}{{5}{11}{\textbf {Systematic Component Ablation Study ($N = 2,000$ Stratified Subset).} Full C-\textsc {GVoC} scores 70.8\% / 258 tokens on this stratified ablation split, consistent with 70.4\% / 258 tokens across the full benchmark (Table~\ref {tab:headline_benchmark}). Epistemic uncertainty penalization ($\kappa = 0.4$) and clean-state suppression save 14 tokens/query while reducing regret to 0.395}{table.caption.19}{}}
 \newlabel{tab:stress_test}{{6}{11}{\textbf {Abstention Stress Test on 1,000 Corrupted Documents.} Percentage of unanswerable queries where models correctly refrain from guessing ($a_{\text {abstain}}$) vs. hallucinating}{table.caption.21}{}}
 \def\@LN@column{2}
 \newlabel{tab:master_benchmark_app}{{7}{12}{\textbf {Master Head-to-Head Comparative Benchmark Matrix ($N = 16,000$ Queries).} Evaluated across 4 backbones (64,000 sessions, 384,000 runs). $^\dagger $Significant over MACT ($p < 0.001$). Accuracy reflects verified correctness; Regret quantifies empirical loss divergence from oracle $\mathcal {A}^*$. The Deterministic Rule baseline reaches 89.0\% accuracy by firing tools unconditionally on $>85\%$ of queries (368 tokens, $+34.3\%$ over \textsc {GVoC}), incurring high Type-I regret. \textsc {GVoC} optimizes the accuracy--compute--regret Pareto frontier, delivering 70.2\% accuracy at 274 tokens with lowest regret (0.412)}{table.caption.22}{}}
