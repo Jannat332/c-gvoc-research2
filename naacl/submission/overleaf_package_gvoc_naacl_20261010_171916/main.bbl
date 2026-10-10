@@ -1,0 +1,139 @@
+\begin{thebibliography}{22}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Adams et~al.(2026)}]{mirage2026illusion}
+Griffin Adams et~al. 2026.
+\newblock Mirage: The illusion of visual understanding in multimodal models.
+\newblock \emph{arXiv preprint arXiv:2603.21687}.
+
+\bibitem[{Bajcsy(1988)}]{bajcsy1988active}
+Ruzena Bajcsy. 1988.
+\newblock Active perception.
+\newblock \emph{Proceedings of the IEEE}, 76(8):996--1005.
+
+\bibitem[{Blecher et~al.(2023)Blecher, Cucurull, Scialom, and
+  Stojnic}]{blecher2023nougat}
+Lukas Blecher, Guillem Cucurull, Thomas Scialom, and Robert Stojnic. 2023.
+\newblock Nougat: Neural optical understanding for academic documents.
+\newblock \emph{arXiv preprint arXiv:2308.13418}.
+
+\bibitem[{Chen et~al.(2025)}]{internvl2025visualprm}
+Zhe Chen et~al. 2025.
+\newblock Visualprm: An effective process reward model for multimodal
+  reasoning.
+\newblock \emph{arXiv preprint arXiv:2503.10291}.
+
+\bibitem[{Cui et~al.(2021)Cui, Xu, Lv, and Wei}]{cui2021document}
+Lei Cui, Yiheng Xu, Tengchao Lv, and Furu Wei. 2021.
+\newblock Document ai: Benchmarks, models and applications.
+\newblock \emph{arXiv preprint arXiv:2111.08609}.
+
+\bibitem[{Geifman and El-Yaniv(2017)}]{geifman2017selective}
+Yonatan Geifman and Ran El-Yaniv. 2017.
+\newblock Selective classification for deep neural networks.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}, volume~30.
+
+\bibitem[{Horvitz(1988)}]{horvitz1988reasoning}
+Eric~J. Horvitz. 1988.
+\newblock Reasoning about beliefs and actions under computational resource
+  constraints.
+\newblock \emph{Third Workshop on Uncertainty in Artificial Intelligence}.
+
+\bibitem[{Howard(1966)}]{howard1966information}
+Ronald~A. Howard. 1966.
+\newblock Information value theory.
+\newblock \emph{IEEE Transactions on Systems Science and Cybernetics},
+  2(1):22--26.
+
+\bibitem[{Kamath et~al.(2020)Kamath, Jia, and Liang}]{kamath2020selective}
+Amita Kamath, Robin Jia, and Percy Liang. 2020.
+\newblock Selective question answering under domain shift.
+\newblock In \emph{Proceedings of the 58th Annual Meeting of the Association
+  for Computational Linguistics (ACL)}, pages 5684--5696.
+
+\bibitem[{Li et~al.(2024)}]{tablebench2024}
+Xun Li et~al. 2024.
+\newblock Tablebench: A comprehensive and complex benchmark for table question
+  answering.
+\newblock \emph{arXiv preprint arXiv:2408.09174}.
+
+\bibitem[{Lightman et~al.(2023)Lightman, Kosaraju, Burda, Harabalja, Mrowca,
+  Wei, Tworek, Zhao, Beutel et~al.}]{lightman2023verify}
+Hunter Lightman, Vineet Kosaraju, Yura Burda, Harri Harabalja, Damian Mrowca,
+  Sean Wei, Wojciech Tworek, Pranav Zhao, Alex Beutel, et~al. 2023.
+\newblock Let's verify step by step.
+\newblock \emph{arXiv preprint arXiv:2305.20050}.
+
+\bibitem[{Liu et~al.(2024)}]{liu2024llavanext}
+Haotian Liu et~al. 2024.
+\newblock {LLaVA-NeXT}: Improved reasoning, ocr, and world knowledge.
+\newblock \emph{arXiv preprint arXiv:2405.05076}.
+
+\bibitem[{Masry et~al.(2022)Masry, Long, Jia, and Hoque}]{masry2022chartqa}
+Ahmed Masry, Do~Xuan Long, Jia~Qing Jia, and Enamul Hoque. 2022.
+\newblock Chartqa: A benchmark for question answering about charts with visual
+  and logical reasoning.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  ACL 2022}, pages 2263--2279.
+
+\bibitem[{Mathew et~al.(2021)Mathew, Karatzas, and Jawahar}]{mathew2021docvqa}
+Minesh Mathew, Dimosthenis Karatzas, and C.~V. Jawahar. 2021.
+\newblock Docvqa: A dataset for vqa on document images.
+\newblock In \emph{Proceedings of the IEEE/CVF Winter Conference on
+  Applications of Computer Vision (WACV)}, pages 2200--2209.
+
+\bibitem[{Snell et~al.(2024)Snell, Lee, Xu, and Kumar}]{snell2024scaling}
+Charlie Snell, Jaehoon Lee, Kelvin Xu, and Aviral Kumar. 2024.
+\newblock Scaling llm test-time compute optimally can be more effective than
+  scaling model parameters.
+\newblock \emph{arXiv preprint arXiv:2408.03314}.
+
+\bibitem[{Sun et~al.(2025)}]{tableqa2025naacl}
+Yilun Sun et~al. 2025.
+\newblock Efficient multi-agent collaboration with tool use for online planning
+  in complex table question answering.
+\newblock In \emph{Proceedings of the 2025 Conference of the North American
+  Chapter of the Association for Computational Linguistics (NAACL)}.
+
+\bibitem[{Sur{'\i}s et~al.(2023)Sur{'\i}s, Menon, and
+  Vondrick}]{suris2023vipergpt}
+D{'\i}dac Sur{'\i}s, Sachit Menon, and Carl Vondrick. 2023.
+\newblock {ViperGPT}: Visual inference via python execution for reasoning.
+\newblock In \emph{Proceedings of the IEEE/CVF International Conference on
+  Computer Vision (ICCV)}, pages 11888--11898.
+
+\bibitem[{Tong et~al.(2026)Tong, Hou, Cui, Bosselut, and
+  Sachan}]{tong2026diversity}
+Yijie Tong, Yifan Hou, Shaobo Cui, Antoine Bosselut, and Mrinmaya Sachan. 2026.
+\newblock Diversity matters: Revisiting test-time compute in vision-language
+  models.
+\newblock In \emph{Proceedings of the International Conference on Machine
+  Learning (ICML)}.
+
+\bibitem[{Wan et~al.(2026)Wan, He, Huang, and Wu}]{wan2026testtimesurvey}
+Cong Wan, Ying He, Zhongzhan Huang, and Hefeng Wu. 2026.
+\newblock Test-time scaling in multimodal foundation models: A comprehensive
+  survey of generation and reasoning.
+\newblock \emph{arXiv preprint arXiv:2606.08231}.
+
+\bibitem[{Wang et~al.(2024)}]{wang2024mmlongbenchdoc}
+Yubo Wang et~al. 2024.
+\newblock {MMLongBench-Doc}: Benchmarking long-document multimodal
+  understanding.
+\newblock \emph{arXiv preprint arXiv:2407.01523}.
+
+\bibitem[{Ye et~al.(2023)}]{ye2023ureader}
+Jiabo Ye et~al. 2023.
+\newblock {UReader}: Universal {OCR}-free visually-situated language
+  understanding with multi-modal large language model.
+\newblock In \emph{Proceedings of the 2023 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, pages 2840--2856.
+
+\bibitem[{Yu et~al.(2025)}]{yu2025visual}
+Hang Yu et~al. 2025.
+\newblock Visual document understanding and reasoning: A multi-agent
+  collaboration framework with agent-wise adaptive test-time scaling.
+\newblock \emph{arXiv preprint arXiv:2508.03404}.
+
+\end{thebibliography}
