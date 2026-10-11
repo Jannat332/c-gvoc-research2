@@ -41,5 +41,7 @@ Thumbs.db
 # Archives
 *.zip
 
-# Temporary renders
+# Temporary renders and runtime crops
 naacl/page_*.png
+**/transformed_images/crop_*.png
+ccea_crops/

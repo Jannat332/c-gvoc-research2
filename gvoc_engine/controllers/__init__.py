@@ -9,8 +9,13 @@ from gvoc_engine.controllers.baselines import (
     OracleGVoCRouter
 )
 
+from gvoc_engine.controllers.risk_bounded_router import RiskBoundedCounterfactualRouter
+from gvoc_engine.controllers.ccea_router import CCEACostAwareRouter
+
 __all__ = [
     "GVoCRouter",
+    "RiskBoundedCounterfactualRouter",
+    "CCEACostAwareRouter",
     "MonolithicBaseline",
     "SelfConsistencyBaseline",
     "FixedVECCAPBaseline",
