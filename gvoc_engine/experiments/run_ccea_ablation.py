@@ -134,6 +134,7 @@ def run_ccea_ablation(num_samples: int = 10, use_live: bool = False):
     }
 
     controller_decisions = {"stop": 0, "acquire": 0, "abstain": 0}
+    all_records = []
 
     for idx, inst in enumerate(instances):
         inst_id = inst["instance_id"]
@@ -265,6 +266,64 @@ def run_ccea_ablation(num_samples: int = 10, use_live: bool = False):
             stats["4_ccea_cost_aware_controller"]["context_retained_count"] += 1
         else:
             stats["4_ccea_cost_aware_controller"]["context_lost_count"] += 1
+
+        # Collect detailed per-instance record for audit
+        all_records.append({
+            "instance_id": inst_id,
+            "dataset": inst.get("dataset", "docvqa"),
+            "query": q,
+            "ground_truth": gt,
+            "image_dimensions": [w, h],
+            "target_box": list(evidence.target_box) if evidence.target_box else None,
+            "conditions": {
+                "1_full_overview": {
+                    "prediction": ans_full,
+                    "acc": acc_full,
+                    "f1": f1_full,
+                    "tokens": p_tok + c_tok,
+                    "latency": round(lat, 4),
+                    "cost_usd": round((p_tok + c_tok) * 0.00015 / 1000.0, 6)
+                },
+                "2_target_only_crop": {
+                    "prediction": res_target_only.final_answer,
+                    "crop_box": list(res_target_only.crop_box) if res_target_only.crop_box else None,
+                    "retained_context": [c.value if hasattr(c, "value") else str(c) for c in res_target_only.retained_context],
+                    "missing_context": [c.value if hasattr(c, "value") else str(c) for c in res_target_only.missing_context],
+                    "acc": acc_tgt,
+                    "f1": f1_tgt,
+                    "tokens": p_tok + c_tok + res_target_only.total_tokens,
+                    "latency": round(lat + res_target_only.latency, 4),
+                    "cost_usd": round(res_target_only.cost_usd, 6)
+                },
+                "3_ccea_context_preserving": {
+                    "prediction": res_ccea.final_answer,
+                    "crop_box": list(res_ccea.crop_box) if res_ccea.crop_box else None,
+                    "retained_context": [c.value if hasattr(c, "value") else str(c) for c in res_ccea.retained_context],
+                    "missing_context": [c.value if hasattr(c, "value") else str(c) for c in res_ccea.missing_context],
+                    "acc": acc_ccea,
+                    "f1": f1_ccea,
+                    "tokens": p_tok + c_tok + res_ccea.total_tokens,
+                    "latency": round(lat + res_ccea.latency, 4),
+                    "cost_usd": round(res_ccea.cost_usd, 6)
+                },
+                "4_ccea_cost_aware_controller": {
+                    "chosen_action": chosen_action.value,
+                    "prediction": final_ans_ctrl,
+                    "acc": acc_ctrl,
+                    "f1": f1_ctrl,
+                    "tokens": tokens_ctrl,
+                    "latency": round(lat_ctrl, 4),
+                    "cost_usd": round(tokens_ctrl * 0.00015 / 1000.0, 6)
+                }
+            }
+        })
+
+    # Save detailed JSON records
+    records_out = Path("discovery/live_validation/ccea_ablation_records.json")
+    records_out.parent.mkdir(parents=True, exist_ok=True)
+    with open(records_out, "w", encoding="utf-8") as f:
+        json.dump(all_records, f, indent=2)
+    print(f"[Artifact] Saved detailed per-instance ablation records to {records_out}")
 
     # -----------------------------------------------------------------
     # Print Comprehensive Ablation Report

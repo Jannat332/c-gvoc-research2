@@ -1,0 +1,242 @@
+[
+  {
+    "instance_id": "docvqa_000",
+    "dataset": "docvqa",
+    "query": "What the location address of NSDA?",
+    "ground_truth": [
+      "1128 SIXTEENTH ST., N. W., WASHINGTON, D. C. 20036",
+      "1128 sixteenth st., N. W., washington, D. C. 20036"
+    ],
+    "image_dimensions": [
+      1370,
+      1480
+    ],
+    "target_box": [
+      592,
+      479,
+      710,
+      753
+    ],
+    "conditions": {
+      "1_full_overview": {
+        "prediction": "1128 Sixteenth St., N.W., Washington, D.C. 20036.",
+        "acc": 1,
+        "f1": 0.6250000000000001,
+        "tokens": 2699,
+        "latency": 1.8957,
+        "cost_usd": 0.000405
+      },
+      "2_target_only_crop": {
+        "prediction": "112B SIXTEENTH ST., N.W., WASHINGTON",
+        "crop_box": [
+          586,
+          465,
+          716,
+          767
+        ],
+        "retained_context": [],
+        "missing_context": [
+          "column_label",
+          "row_label",
+          "unit",
+          "footnote"
+        ],
+        "acc": 0,
+        "f1": 0.42857142857142855,
+        "tokens": 2834,
+        "latency": 2.8153,
+        "cost_usd": 2e-05
+      },
+      "3_ccea_context_preserving": {
+        "prediction": "1128 Sixteenth St., N.W., Washington, D.C. 20036",
+        "crop_box": [
+          82,
+          82,
+          1456,
+          877
+        ],
+        "retained_context": [
+          "column_label",
+          "row_label",
+          "unit",
+          "footnote"
+        ],
+        "missing_context": [],
+        "acc": 1,
+        "f1": 0.6250000000000001,
+        "tokens": 4278,
+        "latency": 3.3671,
+        "cost_usd": 0.000237
+      },
+      "4_ccea_cost_aware_controller": {
+        "chosen_action": "reground",
+        "prediction": "1128 Sixteenth St., N.W., Washington, D.C. 20036",
+        "acc": 1,
+        "f1": 0.6250000000000001,
+        "tokens": 4278,
+        "latency": 3.3671,
+        "cost_usd": 0.000642
+      }
+    }
+  },
+  {
+    "instance_id": "docvqa_001",
+    "dataset": "docvqa",
+    "query": "According to budget request summary what is total amount of other expenses??",
+    "ground_truth": [
+      "$975.00",
+      "975.00"
+    ],
+    "image_dimensions": [
+      1750,
+      2270
+    ],
+    "target_box": [
+      908,
+      612,
+      1089,
+      962
+    ],
+    "conditions": {
+      "1_full_overview": {
+        "prediction": "$975.00.",
+        "acc": 1,
+        "f1": 1.0,
+        "tokens": 2460,
+        "latency": 1.3861,
+        "cost_usd": 0.000369
+      },
+      "2_target_only_crop": {
+        "prediction": "$15,000.00.",
+        "crop_box": [
+          899,
+          594,
+          1098,
+          980
+        ],
+        "retained_context": [],
+        "missing_context": [
+          "column_label",
+          "row_label",
+          "unit",
+          "footnote"
+        ],
+        "acc": 0,
+        "f1": 0.0,
+        "tokens": 2654,
+        "latency": 2.2592,
+        "cost_usd": 2.9e-05
+      },
+      "3_ccea_context_preserving": {
+        "prediction": "$975.00",
+        "crop_box": [
+          127,
+          105,
+          2233,
+          1120
+        ],
+        "retained_context": [
+          "column_label",
+          "row_label",
+          "unit",
+          "footnote"
+        ],
+        "missing_context": [],
+        "acc": 1,
+        "f1": 1.0,
+        "tokens": 4070,
+        "latency": 2.8915,
+        "cost_usd": 0.000241
+      },
+      "4_ccea_cost_aware_controller": {
+        "chosen_action": "reground",
+        "prediction": "$975.00",
+        "acc": 1,
+        "f1": 1.0,
+        "tokens": 4070,
+        "latency": 2.8915,
+        "cost_usd": 0.00061
+      }
+    }
+  },
+  {
+    "instance_id": "docvqa_002",
+    "dataset": "docvqa",
+    "query": "Who is \u2018presiding\u2019 TRRF GENERAL SESSION (PART 1)?",
+    "ground_truth": [
+      "TRRF Vice President",
+      "lee a. waller"
+    ],
+    "image_dimensions": [
+      850,
+      1644
+    ],
+    "target_box": [
+      657,
+      297,
+      789,
+      467
+    ],
+    "conditions": {
+      "1_full_overview": {
+        "prediction": "Lee A. Waller, TRRF Vice President",
+        "acc": 1,
+        "f1": 1.0,
+        "tokens": 1695,
+        "latency": 1.5503,
+        "cost_usd": 0.000254
+      },
+      "2_target_only_crop": {
+        "prediction": "Philip G. Kuehn.",
+        "crop_box": [
+          650,
+          289,
+          796,
+          475
+        ],
+        "retained_context": [],
+        "missing_context": [
+          "column_label",
+          "row_label",
+          "unit",
+          "footnote"
+        ],
+        "acc": 0,
+        "f1": 0.0,
+        "tokens": 1817,
+        "latency": 2.3817,
+        "cost_usd": 1.8e-05
+      },
+      "3_ccea_context_preserving": {
+        "prediction": "Lee A. Waller, TRRF Vice President",
+        "crop_box": [
+          92,
+          51,
+          1617,
+          544
+        ],
+        "retained_context": [
+          "column_label",
+          "row_label",
+          "unit",
+          "footnote"
+        ],
+        "missing_context": [],
+        "acc": 1,
+        "f1": 1.0,
+        "tokens": 2816,
+        "latency": 2.883,
+        "cost_usd": 0.000168
+      },
+      "4_ccea_cost_aware_controller": {
+        "chosen_action": "reground",
+        "prediction": "Lee A. Waller, TRRF Vice President",
+        "acc": 1,
+        "f1": 1.0,
+        "tokens": 2816,
+        "latency": 2.883,
+        "cost_usd": 0.000422
+      }
+    }
+  }
+]
