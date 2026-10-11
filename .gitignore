@@ -15,6 +15,9 @@ env/
 *.env
 *.key
 *.pem
+*.token
+*secret*
+*credential*
 tokens_essential/
 
 # Databases & SQLite Storage

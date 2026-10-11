@@ -13,8 +13,8 @@ from typing import Dict, List, Optional
 BASE_DIR = Path(__file__).resolve().parent
 DATABASE_PATH = os.getenv("GVOC_DB_PATH", str(BASE_DIR / "gvoc_evaluation.db"))
 
-# External secure credential path (Desktop folder)
-SECURE_TOKENS_PATH = Path(r"C:\Users\user\Desktop\tokens_essential\.env")
+# External secure credential path (configurable via environment variable)
+SECURE_TOKENS_PATH = Path(os.getenv("GVOC_ENV_PATH", r"C:\Users\user\Desktop\tokens_essential\.env"))
 
 
 def load_secure_credentials():
