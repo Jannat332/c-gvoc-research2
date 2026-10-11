@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Environments & Virtual Envs
+.venv/
+venv/
+ENV/
+env/
+
+# Sensitive Information & Credentials
+.env
+*.env
+*.key
+*.pem
+tokens_essential/
+
+# Databases & SQLite Storage
+*.db
+*.sqlite
+*.sqlite3
+gvoc_evaluation.db
+
+# TeX auxiliary / temporary files
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.synctex.gz
+*.bak*
+
+# OS & Editor generated files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Archives
+*.zip
+
+# Temporary renders
+naacl/page_*.png

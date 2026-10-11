@@ -1,0 +1,65 @@
+{
+  "project": "Think Longer or Look Closer? Test-Time Scaling for Visual Document Understanding",
+  "target_venue": "NAACL Short Paper Track",
+  "audit_date": "2026-10-11T00:15:00Z",
+  "git_branch": "naacl_master_loop_audit",
+  "git_commit": "2f92f78",
+  "artifacts": [
+    {
+      "path": "gvoc_engine/gvoc_evaluation.db",
+      "size_bytes": 5099520,
+      "sha256": "6690c9b3aa111b35b6fa723f5480ba086786ee461bcfa07153a8080f4886e0fc",
+      "class": "Offline Simulation",
+      "description": "16,000 synthetic diagnostic episodes across DocVQA, ChartQA, TableBench, and MMLongBench across 4 VLM profiles.",
+      "reproducible_command": "python gvoc_engine/experiments/run_full_16k_benchmark.py"
+    },
+    {
+      "path": "discovery/live_validation/live_evaluation.db",
+      "size_bytes": 544768,
+      "sha256": "a6fa89be48304fe885b54bb46571439247c7c0062a4d33eb43cb8d7ce8718873",
+      "class": "Live Model Inference",
+      "description": "100 pre-registered genuine visual document instances evaluated on Mistral Pixtral-12B API (300 model calls).",
+      "reproducible_command": "python discovery/live_validation/independent_analysis.py"
+    },
+    {
+      "path": "discovery/live_validation/diagnostic_experiment/diagnostic_evaluation.db",
+      "size_bytes": 40960,
+      "sha256": "5e9f80366cf4aeca542848c66e27931f60fa0d65b1aa9224483ae89be6bfbfd4",
+      "class": "Live Model Diagnostic Probe",
+      "description": "12 selected instances under 5 prompt/budget conditions evaluating output truncation limits.",
+      "reproducible_command": "python discovery/live_validation/audit_scripts/analyze_diagnostic_results.py"
+    },
+    {
+      "path": "discovery/live_validation/confirmatory_experiment/confirmatory_evaluation.db",
+      "size_bytes": 77824,
+      "sha256": "495e0c243679dfc303f83d02462e2ffb28cb487fef4045f3a0972fe01804b901",
+      "class": "Live Model Exploratory Probe",
+      "description": "20 instances across 5 image and prompt conditions on Pixtral-12B. Audited to overlap 100% with pilot dataset.",
+      "reproducible_command": "python discovery/live_validation/audit_scripts/analyze_confirmatory_results.py"
+    },
+    {
+      "path": "naacl/main.tex",
+      "size_bytes": 52290,
+      "sha256": "aeb61bc13daae851b9e5987d6e66bf246985a7092955146d2f70b4be91ee6b69",
+      "class": "LaTeX Manuscript Source",
+      "description": "Short paper manuscript adhering to 4-page main text limit and fully audited causal language.",
+      "reproducible_command": "cd naacl; pdflatex -interaction=nonstopmode main.tex; python check_pages.py"
+    },
+    {
+      "path": "naacl/custom.bib",
+      "size_bytes": 58062,
+      "sha256": "1394a9eaf31a53bb609aa1dbf6311a37c8651f84501a37a1f59265969542a1ad",
+      "class": "BibTeX Bibliography",
+      "description": "Audited bibliography containing 35 primary-source verified references.",
+      "reproducible_command": "bibtex main"
+    },
+    {
+      "path": "naacl/main.pdf",
+      "size_bytes": 1288449,
+      "sha256": "815335db7ed7bd64287c7bbd3d827aa5cc8657ea5605dd0a04944d56d9817e9d",
+      "class": "Compiled PDF",
+      "description": "Final compiled PDF with 4 pages of main text, references on pages 5-6, appendices on pages 7-12.",
+      "reproducible_command": "python naacl/check_pages.py"
+    }
+  ]
+}

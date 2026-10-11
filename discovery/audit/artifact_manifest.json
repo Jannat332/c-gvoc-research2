@@ -1,0 +1,97 @@
+{
+  "project_name": "Think Longer or Look Closer? Test-Time Scaling for Visual Document Understanding",
+  "audit_date": "2026-10-10",
+  "git": {
+    "branch": "naacl_master_loop_audit",
+    "commit": "2f92f78",
+    "status": "clean"
+  },
+  "manuscript": {
+    "source_tex": "naacl/main.tex",
+    "compiled_pdf": "naacl/main.pdf",
+    "bibliography": "naacl/custom.bib",
+    "style_file": "naacl/naacl2021.sty",
+    "bst_file": "naacl/acl_natbib.bst",
+    "target_venue": "NAACL 2025/2026 Short Paper",
+    "page_count_total": 12,
+    "page_count_main": 4,
+    "page_count_refs": 2,
+    "page_count_appendix": 6
+  },
+  "database": {
+    "path": "gvoc_engine/gvoc_evaluation.db",
+    "size_bytes": 5099520,
+    "tables": [
+      {
+        "name": "task_evaluations",
+        "row_count": 16607,
+        "description": "Episode-level benchmark records across baselines and models"
+      },
+      {
+        "name": "intervention_steps",
+        "row_count": 603,
+        "description": "Step-level decision diagnostics, predicted values, and oracle regret"
+      }
+    ]
+  },
+  "datasets": [
+    {
+      "name": "docvqa_1k",
+      "path": "gvoc_engine/data/docvqa_1k.jsonl",
+      "records": 1000
+    },
+    {
+      "name": "chartqa_1k",
+      "path": "gvoc_engine/data/chartqa_1k.jsonl",
+      "records": 1000
+    },
+    {
+      "name": "tablebench_1k",
+      "path": "gvoc_engine/data/tablebench_1k.jsonl",
+      "records": 1000
+    },
+    {
+      "name": "mmlongbench_1k",
+      "path": "gvoc_engine/data/mmlongbench_1k.jsonl",
+      "records": 1000
+    },
+    {
+      "name": "fresh_diagnostic_benchmark",
+      "path": "gvoc_engine/benchmark/fresh_benchmark_loader.py",
+      "scenarios": 40,
+      "description": "40 paired diagnostic scenarios with ground-truth effective sets"
+    }
+  ],
+  "controllers": [
+    {
+      "name": "GVoCRouter",
+      "path": "gvoc_engine/controllers/gvoc_router.py",
+      "modes": ["point_estimate", "conservative"]
+    },
+    {
+      "name": "RiskBoundedCounterfactualRouter",
+      "path": "gvoc_engine/controllers/risk_bounded_router.py",
+      "formula": "Score_LCB = max(0, Delta_P - kappa * sigma) / (cost + eps)"
+    },
+    {
+      "name": "Baselines",
+      "path": "gvoc_engine/controllers/baselines.py",
+      "classes": [
+        "MonolithicBaseline",
+        "FixedVECCAPBaseline",
+        "MACTBaseline",
+        "ConfidenceRouterBaseline",
+        "OracleGVoCRouter"
+      ]
+    }
+  ],
+  "test_suite": {
+    "runner": "pytest",
+    "files": [
+      "gvoc_engine/tests/test_cgvoc.py",
+      "gvoc_engine/tests/test_risk_bounded_router.py"
+    ],
+    "tests_total": 12,
+    "tests_passing": 12
+  }
+}

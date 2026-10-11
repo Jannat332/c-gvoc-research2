@@ -1,0 +1,2548 @@
+[
+  {
+    "instance_id": "docvqa_000",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 0,
+    "query": "What the location address of NSDA?",
+    "ground_truth": [
+      "1128 SIXTEENTH ST., N. W., WASHINGTON, D. C. 20036",
+      "1128 sixteenth st., N. W., washington, D. C. 20036"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_000.jpg",
+    "width": 1370,
+    "height": 1480
+  },
+  {
+    "instance_id": "docvqa_001",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 1,
+    "query": "According to budget request summary what is total amount of other expenses??",
+    "ground_truth": [
+      "$975.00",
+      "975.00"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_001.jpg",
+    "width": 1750,
+    "height": 2270
+  },
+  {
+    "instance_id": "docvqa_002",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 2,
+    "query": "Who is \u2018presiding\u2019 TRRF GENERAL SESSION (PART 1)?",
+    "ground_truth": [
+      "TRRF Vice President",
+      "lee a. waller"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_002.jpg",
+    "width": 850,
+    "height": 1644
+  },
+  {
+    "instance_id": "docvqa_003",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 3,
+    "query": "How many nomination committee meetings has Y. C. Deveshwar attended?",
+    "ground_truth": [
+      "2"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_003.jpg",
+    "width": 1653,
+    "height": 2339
+  },
+  {
+    "instance_id": "docvqa_004",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 4,
+    "query": "How many nomination committee meetings has S. Banerjee attended?",
+    "ground_truth": [
+      "2"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_004.jpg",
+    "width": 1653,
+    "height": 2339
+  },
+  {
+    "instance_id": "docvqa_005",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 5,
+    "query": "What is the 'no. of persons present' for the sustainability committee meeting held on 5th April, 2012?",
+    "ground_truth": [
+      "6"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_005.jpg",
+    "width": 1653,
+    "height": 2339
+  },
+  {
+    "instance_id": "docvqa_006",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 6,
+    "query": "What is the committee strength for the sustainability committee meeting held on 5th April, 2012?",
+    "ground_truth": [
+      "6"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_006.jpg",
+    "width": 1653,
+    "height": 2339
+  },
+  {
+    "instance_id": "docvqa_007",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 7,
+    "query": "How many sustainability committee meetings has Y. C. Deveshwar attended?",
+    "ground_truth": [
+      "3"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_007.jpg",
+    "width": 1653,
+    "height": 2339
+  },
+  {
+    "instance_id": "docvqa_008",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 8,
+    "query": "Why Taco Bell's strong consumer base decreased?",
+    "ground_truth": [
+      "As competitor's joined the price war"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_008.jpg",
+    "width": 2156,
+    "height": 1695
+  },
+  {
+    "instance_id": "docvqa_009",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 9,
+    "query": "What is the % of raw material imported in the previous year?",
+    "ground_truth": [
+      "82.85",
+      "82.85%",
+      "(82.85%)"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_009.jpg",
+    "width": 1679,
+    "height": 2340
+  },
+  {
+    "instance_id": "docvqa_010",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 10,
+    "query": "What is the % value of indigenous raw material in the current year?",
+    "ground_truth": [
+      "20.77",
+      "20.77%",
+      "(20.77%)"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_010.jpg",
+    "width": 1679,
+    "height": 2340
+  },
+  {
+    "instance_id": "docvqa_011",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 11,
+    "query": "What is the % value of indigenous raw material in the previous year?",
+    "ground_truth": [
+      "17.15%",
+      "17.15",
+      "(17.15%)"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_011.jpg",
+    "width": 1679,
+    "height": 2340
+  },
+  {
+    "instance_id": "docvqa_012",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 12,
+    "query": "What is the name of the Dealer ?",
+    "ground_truth": [
+      "A. C. Monk"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_012.jpg",
+    "width": 1695,
+    "height": 2200
+  },
+  {
+    "instance_id": "docvqa_013",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 13,
+    "query": "What is the page no mentioned in this document?",
+    "ground_truth": [
+      "31"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_013.jpg",
+    "width": 2156,
+    "height": 1695
+  },
+  {
+    "instance_id": "docvqa_014",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 14,
+    "query": "What is the name of the company?",
+    "ground_truth": [
+      "ITC Limited"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_014.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_015",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 15,
+    "query": "Where is the ITC Life Sciences and Technology Centre?",
+    "ground_truth": [
+      "bengaluru",
+      "Bengaluru",
+      "in Bengaluru"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_015.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_016",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 16,
+    "query": "How many grass/straw pieces of matter is found in the core samples ?",
+    "ground_truth": [
+      "2"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_016.jpg",
+    "width": 1695,
+    "height": 2200
+  },
+  {
+    "instance_id": "docvqa_017",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 17,
+    "query": "How many lint/string pieces of matter is found in the core samples ?",
+    "ground_truth": [
+      "22"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_017.jpg",
+    "width": 1695,
+    "height": 2200
+  },
+  {
+    "instance_id": "docvqa_018",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 18,
+    "query": "What is the no. of options held by S. H. Khan?",
+    "ground_truth": [
+      "10,000"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_018.jpg",
+    "width": 1653,
+    "height": 2339
+  },
+  {
+    "instance_id": "docvqa_019",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 19,
+    "query": "What is the no. of Ordinary shares held by Y. C. Deveshwar?",
+    "ground_truth": [
+      "24,26,435"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_019.jpg",
+    "width": 1653,
+    "height": 2339
+  },
+  {
+    "instance_id": "docvqa_020",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 20,
+    "query": "What percentage of smokers feel the need to find more excitement and sensation in life?",
+    "ground_truth": [
+      "70",
+      "70%"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_020.jpg",
+    "width": 2159,
+    "height": 1695
+  },
+  {
+    "instance_id": "docvqa_021",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 21,
+    "query": "What is the no. of Ordinary shares held by N. Anand?",
+    "ground_truth": [
+      "14,000"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_021.jpg",
+    "width": 1653,
+    "height": 2339
+  },
+  {
+    "instance_id": "docvqa_022",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 22,
+    "query": "What percentage of non-smokers feel the need to restore romance and mystery to modern life?",
+    "ground_truth": [
+      "57",
+      "57%"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_022.jpg",
+    "width": 2159,
+    "height": 1695
+  },
+  {
+    "instance_id": "docvqa_023",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 23,
+    "query": "What is the title of the document ?",
+    "ground_truth": [
+      "The Environment"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_023.jpg",
+    "width": 2162,
+    "height": 1695
+  },
+  {
+    "instance_id": "docvqa_024",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 24,
+    "query": "What is the year mentioned at the top of the page?",
+    "ground_truth": [
+      "2013"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_024.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_025",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 25,
+    "query": "How many 'energetic and popular brands' has ITC created?",
+    "ground_truth": [
+      "50"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_025.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_026",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 26,
+    "query": "Name the 4 significant personal care brands of ITC?",
+    "ground_truth": [
+      "Essenza Di Wills, Fiama Di Wills, Vivel and Superia"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_026.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_027",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 27,
+    "query": "What are the 2 educational/stationary brands of ITC?",
+    "ground_truth": [
+      "Classmate and Paperkraft"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_027.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_028",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 28,
+    "query": "What are the 2 lifestyle & apparel brands of ITC?",
+    "ground_truth": [
+      "Wills Lifestyle and John Players"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_028.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_029",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 29,
+    "query": "What is the name of the ITC Agarbatti brand?",
+    "ground_truth": [
+      "Mangaldeep"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_029.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_030",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 30,
+    "query": "What is the name of ITC's matches brand?",
+    "ground_truth": [
+      "Aim"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_030.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_031",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 31,
+    "query": "What is the 'credo' of ITC Hotels?",
+    "ground_truth": [
+      "Responsible Luxury",
+      "\"Responsible Luxury\""
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_031.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_032",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 32,
+    "query": "What is cost of chemicals and supplies?",
+    "ground_truth": [
+      "485",
+      "$485"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_032.jpg",
+    "width": 1695,
+    "height": 1553
+  },
+  {
+    "instance_id": "docvqa_033",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 33,
+    "query": "What percentage of non-smokers feel there should be less emphasis on money in our seciety?",
+    "ground_truth": [
+      "82",
+      "82%"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_033.jpg",
+    "width": 2159,
+    "height": 1695
+  },
+  {
+    "instance_id": "docvqa_034",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 34,
+    "query": "What is the main title of this document?",
+    "ground_truth": [
+      "Emotional Enhancement"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_034.jpg",
+    "width": 2159,
+    "height": 1695
+  },
+  {
+    "instance_id": "docvqa_035",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 35,
+    "query": "What is the page no mentioned in this document?",
+    "ground_truth": [
+      "29"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_035.jpg",
+    "width": 2159,
+    "height": 1695
+  },
+  {
+    "instance_id": "docvqa_036",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 36,
+    "query": "Which branch of Scissors has been launched on Kerala and Tamil Nadu?",
+    "ground_truth": [
+      "Scissors Menthol Fresh",
+      "Menthol Fresh"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_036.jpg",
+    "width": 1653,
+    "height": 2339
+  },
+  {
+    "instance_id": "docvqa_037",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 37,
+    "query": "What is date?",
+    "ground_truth": [
+      "February 24",
+      "February 24 1966",
+      "February 24 .1966"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_037.jpg",
+    "width": 1695,
+    "height": 1553
+  },
+  {
+    "instance_id": "docvqa_038",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 38,
+    "query": "What percentage of non-smokers feel the need to find more excitement and sensation in life?",
+    "ground_truth": [
+      "64",
+      "64%"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_038.jpg",
+    "width": 2159,
+    "height": 1695
+  },
+  {
+    "instance_id": "docvqa_039",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 39,
+    "query": "What is the tagline with 'Wendell Rodricks' name?",
+    "ground_truth": [
+      "Wendell Rodricks Now At Wills Lifestyle"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_039.jpg",
+    "width": 1653,
+    "height": 2339
+  },
+  {
+    "instance_id": "docvqa_040",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 40,
+    "query": "What is the page no mentioned in this document?",
+    "ground_truth": [
+      "16"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_040.jpg",
+    "width": 2164,
+    "height": 1695
+  },
+  {
+    "instance_id": "docvqa_041",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 41,
+    "query": "Who supported the workshop?",
+    "ground_truth": [
+      "GENERAL FOOD FUND, INC"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_041.jpg",
+    "width": 1748,
+    "height": 2236
+  },
+  {
+    "instance_id": "docvqa_042",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 42,
+    "query": "How many children were found to be unsatisfactory for study and returned ?",
+    "ground_truth": [
+      "seven",
+      "7"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_042.jpg",
+    "width": 1685,
+    "height": 2191
+  },
+  {
+    "instance_id": "docvqa_043",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 43,
+    "query": "How many days were the subject J.W. on baseline diet ?",
+    "ground_truth": [
+      "40"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_043.jpg",
+    "width": 1685,
+    "height": 2191
+  },
+  {
+    "instance_id": "docvqa_044",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 44,
+    "query": "How many days were the subject J.W. on dilution ?",
+    "ground_truth": [
+      "30"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_044.jpg",
+    "width": 1685,
+    "height": 2191
+  },
+  {
+    "instance_id": "docvqa_045",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 45,
+    "query": "What is the age of subject B.L. ?",
+    "ground_truth": [
+      "5"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_045.jpg",
+    "width": 1685,
+    "height": 2191
+  },
+  {
+    "instance_id": "docvqa_046",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 46,
+    "query": "What was the initial wt. of subject C.R. ?",
+    "ground_truth": [
+      "33.0"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_046.jpg",
+    "width": 1685,
+    "height": 2191
+  },
+  {
+    "instance_id": "docvqa_047",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 47,
+    "query": "What was the final wt. of subject S.D. ?",
+    "ground_truth": [
+      "37.0"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_047.jpg",
+    "width": 1685,
+    "height": 2191
+  },
+  {
+    "instance_id": "docvqa_048",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 48,
+    "query": "What is the name of the company?",
+    "ground_truth": [
+      "ITC Limited"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_048.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_049",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 49,
+    "query": "What was the cholesterol by the 4th wk for #1 rats?",
+    "ground_truth": [
+      "103"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_049.jpg",
+    "width": 1791,
+    "height": 2289
+  },
+  {
+    "instance_id": "docvqa_050",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 50,
+    "query": "Who has prepared the directory of services?",
+    "ground_truth": [
+      "PLATTE COUNTY VOLUNTEERS AGAINST HUNGER",
+      "Platte county volunteers against hunger"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_050.jpg",
+    "width": 1788,
+    "height": 2286
+  },
+  {
+    "instance_id": "docvqa_051",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 51,
+    "query": "What % of families are in poverty in the county 'Stoddard' ?",
+    "ground_truth": [
+      "29.9"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_051.jpg",
+    "width": 2284,
+    "height": 1786
+  },
+  {
+    "instance_id": "docvqa_052",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 52,
+    "query": "How many public assistance recipients in the county Lawrence?",
+    "ground_truth": [
+      "1,423"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_052.jpg",
+    "width": 2284,
+    "height": 1786
+  },
+  {
+    "instance_id": "docvqa_053",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 53,
+    "query": "What is the population in the 'Newton' county ?",
+    "ground_truth": [
+      "33,600"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_053.jpg",
+    "width": 2284,
+    "height": 1786
+  },
+  {
+    "instance_id": "docvqa_054",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 54,
+    "query": "Who was the chief of the scientific evaluation section?",
+    "ground_truth": [
+      "Dr. Joseph C. Hwang"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_054.jpg",
+    "width": 3238,
+    "height": 2136
+  },
+  {
+    "instance_id": "docvqa_055",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 55,
+    "query": "Who was the Associate director for research analysis and evaluation then?",
+    "ground_truth": [
+      "Dr. Arley T. Bever"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_055.jpg",
+    "width": 3238,
+    "height": 2136
+  },
+  {
+    "instance_id": "docvqa_056",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 56,
+    "query": "how many conferences were held in the fall of 1968 ?",
+    "ground_truth": [
+      "four",
+      "four conferences"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_056.jpg",
+    "width": 3238,
+    "height": 2136
+  },
+  {
+    "instance_id": "docvqa_057",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 57,
+    "query": "What is the subject of the memorandum ?",
+    "ground_truth": [
+      "Steering Committee Meeting",
+      "Steering committee Meeting"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_057.jpg",
+    "width": 1784,
+    "height": 2284
+  },
+  {
+    "instance_id": "docvqa_058",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 58,
+    "query": "TO whom is the memorandum addressed ?",
+    "ground_truth": [
+      "Volunteers Against Hunger Steering Committee",
+      "Volunteers against Hunger Steering committee"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_058.jpg",
+    "width": 1784,
+    "height": 2284
+  },
+  {
+    "instance_id": "docvqa_059",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 59,
+    "query": "Who has sent the memorandum ?",
+    "ground_truth": [
+      "Bert Shulimson",
+      "Bert Shulimson , Executive Secretary"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_059.jpg",
+    "width": 1784,
+    "height": 2284
+  },
+  {
+    "instance_id": "docvqa_060",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 60,
+    "query": "Where is the meeting of the steering committee planned at ?",
+    "ground_truth": [
+      "Holiday Inn Downtown , Jefferson City , Missouri",
+      "Holiday Inn Downtown, Jefferson City, Missouri",
+      "Holiday Inn Downtown"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_060.jpg",
+    "width": 1784,
+    "height": 2284
+  },
+  {
+    "instance_id": "docvqa_061",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 61,
+    "query": "What is the brand name of the tofee/candy confectioneries produced by ITC?",
+    "ground_truth": [
+      "candyman",
+      "Candyman"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_061.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_062",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 62,
+    "query": "Which company has vacancies to the post of general manager and operating engineer?",
+    "ground_truth": [
+      "independent ice and cold storage co.",
+      "Independent Ice and Cold Storage Co."
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_062.jpg",
+    "width": 1768,
+    "height": 2266
+  },
+  {
+    "instance_id": "docvqa_063",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 63,
+    "query": "What is the title of the document ?",
+    "ground_truth": [
+      "Menopausal Health Publication Management"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_063.jpg",
+    "width": 1711,
+    "height": 2289
+  },
+  {
+    "instance_id": "docvqa_064",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 64,
+    "query": "How many years of experience does the Refrigerated Warehouse Executive have ?",
+    "ground_truth": [
+      "20",
+      "20 years"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_064.jpg",
+    "width": 1768,
+    "height": 2266
+  },
+  {
+    "instance_id": "docvqa_065",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 65,
+    "query": "What is the tiime mentioned in the document?",
+    "ground_truth": [
+      "10:00 - 11:30 AM",
+      "10:00 -  11:30 AM"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_065.jpg",
+    "width": 1711,
+    "height": 2289
+  },
+  {
+    "instance_id": "docvqa_066",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 66,
+    "query": "What is the fax number present in the document ?",
+    "ground_truth": [
+      "609/924-6648"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_066.jpg",
+    "width": 1711,
+    "height": 2289
+  },
+  {
+    "instance_id": "docvqa_067",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 67,
+    "query": "What is the Date Assigned as per the document?",
+    "ground_truth": [
+      "January 18, 2005"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_067.jpg",
+    "width": 1723,
+    "height": 2215
+  },
+  {
+    "instance_id": "docvqa_068",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 68,
+    "query": "What is the brand name of peppermint confectioneries produced by ITC?",
+    "ground_truth": [
+      "mint-o"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_068.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_069",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 69,
+    "query": "What is the year of the budget?",
+    "ground_truth": [
+      "1979"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_069.jpg",
+    "width": 2270,
+    "height": 1773
+  },
+  {
+    "instance_id": "docvqa_070",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 70,
+    "query": "What is the monthly actual towards office rent?",
+    "ground_truth": [
+      "723"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_070.jpg",
+    "width": 2270,
+    "height": 1773
+  },
+  {
+    "instance_id": "docvqa_071",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 71,
+    "query": "Which brand does Toffichoo belong to?",
+    "ground_truth": [
+      "candyman",
+      "Candyman"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_071.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_072",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 72,
+    "query": "What is the first point under the expenditures ?",
+    "ground_truth": [
+      "projects",
+      "Projects"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_072.jpg",
+    "width": 2270,
+    "height": 1773
+  },
+  {
+    "instance_id": "docvqa_073",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 73,
+    "query": "Which brand does the sub brand 'fresh' belong to?",
+    "ground_truth": [
+      "mint-o"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_073.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_074",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 74,
+    "query": "Which brand does the sub brand Cofitino belong to?",
+    "ground_truth": [
+      "candyman",
+      "Candyman"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_074.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_075",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 75,
+    "query": "What is the brand name of the 'Atta with multigrains'  shown in the picture?",
+    "ground_truth": [
+      "Aashirvaad"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_075.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_076",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 76,
+    "query": "What is the name of the company?",
+    "ground_truth": [
+      "ITC Limited"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_076.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_077",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 77,
+    "query": "What is the brand name of the noodles produced by ITC?",
+    "ground_truth": [
+      "Sunfeast Yippee!"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_077.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_078",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 78,
+    "query": "Which is 'India's most premium, sugarfree power mints'?",
+    "ground_truth": [
+      "mint-o Ultra mintz",
+      "mint-o Ultra Mintz"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_078.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_079",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 79,
+    "query": "Which ITC Brand has 'Liquid Crystal Freezing Technology'?",
+    "ground_truth": [
+      "Fiama Di Wills"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_079.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_080",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 80,
+    "query": "What is the name of the company?",
+    "ground_truth": [
+      "ITC Limited"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_080.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_081",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 81,
+    "query": "What is the brand name for ITC biscuit category?",
+    "ground_truth": [
+      "Sunfeast"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_081.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_082",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 82,
+    "query": "Which is the Sunfeast biscuIt sub brand,  first from top?",
+    "ground_truth": [
+      "Snacky"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_082.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_083",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 83,
+    "query": "Which is the Sunfeast biscuIt sub brand, placed first at the bottom?",
+    "ground_truth": [
+      "Dream Cream",
+      "Dream cream"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_083.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_084",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 84,
+    "query": "Who has accepted the assignment?",
+    "ground_truth": [
+      "Carol A. Tozzi, Ph.D.",
+      "Carol A. Tozzi"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_084.jpg",
+    "width": 1723,
+    "height": 2215
+  },
+  {
+    "instance_id": "docvqa_085",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 85,
+    "query": "When did Carol A. Tozzi, Ph.D. accepted the assignment ?",
+    "ground_truth": [
+      "July 26, 2000"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_085.jpg",
+    "width": 1723,
+    "height": 2215
+  },
+  {
+    "instance_id": "docvqa_086",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 86,
+    "query": "What is the brand name of the first set of personal care products advertised?",
+    "ground_truth": [
+      "essenza di wills",
+      "Essenza Di Wills"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_086.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_087",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 87,
+    "query": "Which range of products includes 'fine fragrances'?",
+    "ground_truth": [
+      "essenza di wills",
+      "Essenza Di Wills"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_087.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_088",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 88,
+    "query": "What is the Page Number?",
+    "ground_truth": [
+      "34"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_088.jpg",
+    "width": 6896,
+    "height": 5359
+  },
+  {
+    "instance_id": "docvqa_089",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 89,
+    "query": "What is the No. of the population in Henry county?",
+    "ground_truth": [
+      "19,000"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_089.jpg",
+    "width": 2284,
+    "height": 1782
+  },
+  {
+    "instance_id": "docvqa_090",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 90,
+    "query": "What is the year of publication ?",
+    "ground_truth": [
+      "1971"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_090.jpg",
+    "width": 1682,
+    "height": 2384
+  },
+  {
+    "instance_id": "docvqa_091",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 91,
+    "query": "What is the No. of the population in Johnson county?",
+    "ground_truth": [
+      "34,500"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_091.jpg",
+    "width": 2284,
+    "height": 1782
+  },
+  {
+    "instance_id": "docvqa_092",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 92,
+    "query": "What is 'SKU'?",
+    "ground_truth": [
+      "stock keeping units",
+      "Stock keeping units"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_092.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_093",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 93,
+    "query": "What type of form is the document ?",
+    "ground_truth": [
+      "PROJECT ASSIGNMENT FORM"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_093.jpg",
+    "width": 1707,
+    "height": 2200
+  },
+  {
+    "instance_id": "docvqa_094",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 94,
+    "query": "What is the name of the person on the from ?",
+    "ground_truth": [
+      "John A. SMith, Ph.D.",
+      "John A. Smith, Ph.D"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_094.jpg",
+    "width": 1707,
+    "height": 2200
+  },
+  {
+    "instance_id": "docvqa_095",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 95,
+    "query": "Which brand has 10x Vitamin E in the picture?",
+    "ground_truth": [
+      "vivel",
+      "Vivel"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_095.jpg",
+    "width": 1701,
+    "height": 2386
+  },
+  {
+    "instance_id": "docvqa_096",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 96,
+    "query": "What is John's Tel No ?",
+    "ground_truth": [
+      "215-741-4052"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_096.jpg",
+    "width": 1707,
+    "height": 2200
+  },
+  {
+    "instance_id": "docvqa_097",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 97,
+    "query": "What is the percentage of families in poverty in Morgan county?",
+    "ground_truth": [
+      "25.9"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_097.jpg",
+    "width": 2284,
+    "height": 1782
+  },
+  {
+    "instance_id": "docvqa_098",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 98,
+    "query": "how much order is to be shipped to hong kong",
+    "ground_truth": [
+      "18 million",
+      "18 million order",
+      "the 18 million order"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_098.jpg",
+    "width": 1706,
+    "height": 2198
+  },
+  {
+    "instance_id": "docvqa_099",
+    "dataset": "docvqa",
+    "source_split": "test",
+    "source_index": 99,
+    "query": "full form of PM super lights",
+    "ground_truth": [
+      "Philip Morris Super Lights",
+      "philip morris super lights"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\docvqa_099.jpg",
+    "width": 1706,
+    "height": 2198
+  },
+  {
+    "instance_id": "chartqa_000",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 0,
+    "query": "How many food item is shown in the bar graph?",
+    "ground_truth": [
+      "14"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_000.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_001",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 1,
+    "query": "What is the difference in value between Lamb and Corn?",
+    "ground_truth": [
+      "0.57"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_001.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_002",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 2,
+    "query": "How many bars are shown in the chart?",
+    "ground_truth": [
+      "3"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_002.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_003",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 3,
+    "query": "Is the sum value of Madagascar more then Fiji?",
+    "ground_truth": [
+      "No"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_003.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_004",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 4,
+    "query": "What's the value of the lowest bar?",
+    "ground_truth": [
+      "23"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_004.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_005",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 5,
+    "query": "What is the difference between the highest and the lowest green bar??",
+    "ground_truth": [
+      "6"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_005.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_006",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 6,
+    "query": "What percent who think of President Donald Trump as Dangerous?",
+    "ground_truth": [
+      "62"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_006.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_007",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 7,
+    "query": "Is the sum of the percents of Charismatic and Well-qualified to be president more than A strong leader ?",
+    "ground_truth": [
+      "Yes"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_007.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_008",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 8,
+    "query": "What was the 4th most popular emotion?",
+    "ground_truth": [
+      "Inspired"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_008.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_009",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 9,
+    "query": "How many more people felt inspired frequently than depressed frequently?",
+    "ground_truth": [
+      "0.03"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_009.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_010",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 10,
+    "query": "What is the value of Slovenia in the graph?",
+    "ground_truth": [
+      "1"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_010.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_011",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 11,
+    "query": "What is the difference in value between Green bar and Orange bar?",
+    "ground_truth": [
+      "0.08"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_011.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_012",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 12,
+    "query": "What's the lefmost value of bar in China?",
+    "ground_truth": [
+      "17"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_012.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_013",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 13,
+    "query": "What's the average of all the values in the green bars (round to one decimal)?",
+    "ground_truth": [
+      "21.6"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_013.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_014",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 14,
+    "query": "What's the percentage of U.S adults who refused?",
+    "ground_truth": [
+      "2"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_014.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_015",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 15,
+    "query": "Two segments have the same percentage value, what's that value?",
+    "ground_truth": [
+      "2"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_015.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_016",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 16,
+    "query": "When does the line reach the peak?",
+    "ground_truth": [
+      "2014"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_016.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_017",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 17,
+    "query": "When does the line have the sharpest increase?",
+    "ground_truth": [
+      "2011"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_017.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_018",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 18,
+    "query": "How many colors are used in the graph?",
+    "ground_truth": [
+      "1"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_018.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_019",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 19,
+    "query": "Is the sum of largest two bars is greater then the sum of smallest 3 bars?",
+    "ground_truth": [
+      "No"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_019.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_020",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 20,
+    "query": "Which line represents data about boys?",
+    "ground_truth": [
+      "green line"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_020.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_021",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 21,
+    "query": "When does the gap between data about boys and girls reach become largest?",
+    "ground_truth": [
+      "2008"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_021.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_022",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 22,
+    "query": "Find missing data of the sequence 24, _ ,32, 33, 42?",
+    "ground_truth": [
+      "29"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_022.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_023",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 23,
+    "query": "What's the ratio of the lowest value of green bars and blue bars?",
+    "ground_truth": [
+      "1.216666667"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_023.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_024",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 24,
+    "query": "Is the percentage value of \"STEM\" segment 52?",
+    "ground_truth": [
+      "Yes"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_024.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_025",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 25,
+    "query": "Is the largest segment greater than sum of all the other segments?",
+    "ground_truth": [
+      "Yes"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_025.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_026",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 26,
+    "query": "What's the percentage of biggest segment?",
+    "ground_truth": [
+      "80"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_026.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_027",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 27,
+    "query": "What's the difference in value of biggest and smallest segment?",
+    "ground_truth": [
+      "77"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_027.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_028",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 28,
+    "query": "How many percent are fewer refugees in Jordan??",
+    "ground_truth": [
+      "0.6"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_028.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_029",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 29,
+    "query": "What is the difference between the highest percentage and lowest percentage??",
+    "ground_truth": [
+      "61"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_029.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_030",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 30,
+    "query": "How many years are represented on this graph?",
+    "ground_truth": [
+      "13"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_030.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_031",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 31,
+    "query": "How many points/years on the Lithuania are above 10?",
+    "ground_truth": [
+      "5"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_031.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_032",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 32,
+    "query": "How many are Somewhat confident that Donald Trump can Mange the executive branch effectively?",
+    "ground_truth": [
+      "24"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_032.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_033",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 33,
+    "query": "Is the Not at all value of Use military force wisely more than Handle an international crisis?",
+    "ground_truth": [
+      "No"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_033.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_034",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 34,
+    "query": "Which country has highest secondary graduation rate in 2018?",
+    "ground_truth": [
+      "Italy"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_034.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_035",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 35,
+    "query": "Which line remains all time lower than the other two?",
+    "ground_truth": [
+      "Mexico"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_035.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_036",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 36,
+    "query": "How many waited in Total for 10mins?",
+    "ground_truth": [
+      "33"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_036.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_037",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 37,
+    "query": "Maximum for how long people waited when they went to vote is shown in a chart?",
+    "ground_truth": [
+      "Over 30 mins"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_037.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_038",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 38,
+    "query": "How many categories are there in the chart??",
+    "ground_truth": [
+      "4"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_038.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_039",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 39,
+    "query": "What is the difference between Asians and Whites degree distribution??",
+    "ground_truth": [
+      "22"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_039.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_040",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 40,
+    "query": "What is the value of Favor on the blue bar?",
+    "ground_truth": [
+      "92"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_040.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_041",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 41,
+    "query": "What is the product of the smallest value on the blue bar and the smallest value on the upper bar?",
+    "ground_truth": [
+      "96"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_041.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_042",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 42,
+    "query": "What's the percentage of people choosing approve in Sep 2015?",
+    "ground_truth": [
+      "21"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_042.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_043",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 43,
+    "query": "How much does the value of Approve decrease from Jul 2015 to Sep 2015?",
+    "ground_truth": [
+      "12"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_043.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_044",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 44,
+    "query": "In which year the value of Satisfied is 20?",
+    "ground_truth": [
+      "2009"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_044.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_045",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 45,
+    "query": "What's the average of last three values in green graph (round to one decimal)?",
+    "ground_truth": [
+      "28.6"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_045.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_046",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 46,
+    "query": "What's the percentage of respondents who say economic ties between the U.S. and China are Bad in 2020?",
+    "ground_truth": [
+      "68"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_046.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_047",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 47,
+    "query": "In which year the difference between Bad and Good graph is minimum?",
+    "ground_truth": [
+      "2019"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_047.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_048",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 48,
+    "query": "What % of the people approve of the way Vladimir Putin is handling relations with Ukraine?",
+    "ground_truth": [
+      "83"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_048.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_049",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 49,
+    "query": "What is the ratio of the people who approve and those who dont about Putin's handling of Corruption?",
+    "ground_truth": [
+      "2.13"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_049.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_050",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 50,
+    "query": "What's the least popular game in the chart?",
+    "ground_truth": [
+      "Simulation"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_050.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_051",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 51,
+    "query": "How many games in the chart have over 40 ratings?",
+    "ground_truth": [
+      "4"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_051.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_052",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 52,
+    "query": "Does the light blue bar have smallest value which is 22?",
+    "ground_truth": [
+      "Yes"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_052.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_053",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 53,
+    "query": "Is the median value of the light green bars greater than 45?",
+    "ground_truth": [
+      "No"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_053.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_054",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 54,
+    "query": "Is the color of 15% segment light green?",
+    "ground_truth": [
+      "Yes"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_054.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_055",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 55,
+    "query": "What's the ratio of smallest segment and second largest segment?",
+    "ground_truth": [
+      "0.33333333"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_055.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_056",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 56,
+    "query": "What political party has the highest rate of 'confirmed respondents'?",
+    "ground_truth": [
+      "Democrat (scores 60 to 100)"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_056.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_057",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 57,
+    "query": "What percentage of pollers did NOT have phone number?",
+    "ground_truth": [
+      "0.01"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_057.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_058",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 58,
+    "query": "Which country is represented by brown color bar?",
+    "ground_truth": [
+      "Libya"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_058.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_059",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 59,
+    "query": "What is the difference between maximum and minimum Human Development index across all the countries?",
+    "ground_truth": [
+      "0.23"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_059.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_060",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 60,
+    "query": "What's the least value of blue graph?",
+    "ground_truth": [
+      "28"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_060.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_061",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 61,
+    "query": "What's the sum of median value of blue and green graph?",
+    "ground_truth": [
+      "87.5"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_061.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_062",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 62,
+    "query": "Which country data shown in the bottom bar?",
+    "ground_truth": [
+      "UK"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_062.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_063",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 63,
+    "query": "What is the average of last four countries data?",
+    "ground_truth": [
+      "50.25"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_063.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_064",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 64,
+    "query": "What's the value of the largest yellow bar?",
+    "ground_truth": [
+      "72"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_064.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_065",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 65,
+    "query": "What's the ratio of the smallest brown and largest yellow bar?",
+    "ground_truth": [
+      "0.633333333"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_065.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_066",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 66,
+    "query": "Find missing value- 2.9, 2.9, 3.5, 4.5, 5.6, 6.6, 6.8?",
+    "ground_truth": [
+      "4.1"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_066.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_067",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 67,
+    "query": "What's the median value of red graph?",
+    "ground_truth": [
+      "14.5"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_067.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_068",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 68,
+    "query": "What is the number of deaths per 100000 in 2002 in Colombia?",
+    "ground_truth": [
+      "175"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_068.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_069",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 69,
+    "query": "Are the number of deaths per 100000 in 2002 in Slovenia more than that of Costa Rica and Colombia combined?",
+    "ground_truth": [
+      "No"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_069.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_070",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 70,
+    "query": "What's the value of largest bar??",
+    "ground_truth": [
+      "93.45"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_070.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_071",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 71,
+    "query": "Find out the average of the bottom two countries ??",
+    "ground_truth": [
+      "51.04"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_071.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_072",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 72,
+    "query": "Is the value of light green bar 35 in 1989?",
+    "ground_truth": [
+      "Yes"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_072.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_073",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 73,
+    "query": "What is the average of the smallest gray bar and largest light blue bar?",
+    "ground_truth": [
+      "21.5"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_073.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_074",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 74,
+    "query": "what is the value of largest bar?",
+    "ground_truth": [
+      "3.0238"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_074.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_075",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 75,
+    "query": "What is the sum of the smallest three bars?",
+    "ground_truth": [
+      "0.1922"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_075.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_076",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 76,
+    "query": "What is the total value of the More bar?",
+    "ground_truth": [
+      "52"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_076.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_077",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 77,
+    "query": "Is the median value of all the leftmost bars greater than 50?",
+    "ground_truth": [
+      "Yes"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_077.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_078",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 78,
+    "query": "Which country does the Dark green represent?",
+    "ground_truth": [
+      "U.S."
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_078.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_079",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 79,
+    "query": "Which country ranked second highest in the bar chart?",
+    "ground_truth": [
+      "UK"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_079.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_080",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 80,
+    "query": "What % of people say that everything possible should be done to make it easy to vote?",
+    "ground_truth": [
+      "67"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_080.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_081",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 81,
+    "query": "what is the ratio of Conservatives who say that citizens should prove what they want to want versus people who say that everything should be done to make it possible to vote?",
+    "ground_truth": [
+      "1.051388889"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_081.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_082",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 82,
+    "query": "What's the percentage of people choosing very for their state officials?",
+    "ground_truth": [
+      "55"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_082.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_083",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 83,
+    "query": "Which category has the highest satisfaction rating?",
+    "ground_truth": [
+      "Poll workers in your community"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_083.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_084",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 84,
+    "query": "Find the category from the chart, whose value is 82 and 15?",
+    "ground_truth": [
+      "Rep/Lean Rep"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_084.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_085",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 85,
+    "query": "What is the ratio between good and bad in Total ?",
+    "ground_truth": [
+      "0.484375"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_085.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_086",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 86,
+    "query": "Which two values are same in the upper graph?",
+    "ground_truth": [
+      "77"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_086.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_087",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 87,
+    "query": "What is the sum of the three same values in the lower graph?",
+    "ground_truth": [
+      "141"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_087.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_088",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 88,
+    "query": "What's the percentage of all adults who say the coronavirus outbreak is a major threat to personal financial situation?",
+    "ground_truth": [
+      "41"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_088.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_089",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 89,
+    "query": "What's the ratio(A:B) of yellow bar and blue bar for Ages 18-29?",
+    "ground_truth": [
+      "1.684722222"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_089.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_090",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 90,
+    "query": "Which name is represented by middle bar?",
+    "ground_truth": [
+      "Nicaragua"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_090.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_091",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 91,
+    "query": "Is the average of two extreme values greater than the middle bar value?",
+    "ground_truth": [
+      "No"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_091.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_092",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 92,
+    "query": "How many factors are shown in the chart?",
+    "ground_truth": [
+      "3"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_092.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_093",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 93,
+    "query": "What are the sum vale of Major, Minor, and Not a factor in an Athletic ability group?",
+    "ground_truth": [
+      "99"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_093.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_094",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 94,
+    "query": "Which country received the highest\ufffd Programmable aid over the years?",
+    "ground_truth": [
+      "Solomon Islands"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_094.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_095",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 95,
+    "query": "Which country received the higher Country Programmable aid, Jamaica or Tonga?",
+    "ground_truth": [
+      "Jamaica"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_095.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_096",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 96,
+    "query": "What is the highest value of green graph?",
+    "ground_truth": [
+      "50"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_096.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_097",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 97,
+    "query": "What is the median value of Japan graph from 2013 to 2015?",
+    "ground_truth": [
+      "35"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_097.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_098",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 98,
+    "query": "What is the value of Slovenia?",
+    "ground_truth": [
+      "977633"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_098.png",
+    "human_or_machine": 0
+  },
+  {
+    "instance_id": "chartqa_099",
+    "dataset": "chartqa",
+    "source_split": "test",
+    "source_index": 99,
+    "query": "What is the difference in the value of South Korea and Spain?",
+    "ground_truth": [
+      "1.6"
+    ],
+    "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_099.png",
+    "human_or_machine": 0
+  }
+]

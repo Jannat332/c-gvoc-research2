@@ -1,0 +1,10 @@
+{
+  "discovery/live_validation/pilot_dataset/preregistered_100.json": "58cff17d9291427c3b24772efd640f8d3f26ab9bf6a955eddc56f41489f70cd4",
+  "discovery/live_validation/live_evaluation.db": "a6fa89be48304fe841b2df3460908ed239e31d21096367de2579a6f79e3ffc7c",
+  "discovery/live_validation/live_runner.py": "deb8d518e5826fbea913e2c3a05cb79f9330e86f396f0e0c0d36c4673414b62d",
+  "discovery/live_validation/live_client.py": "c1e2278bd5b53b3604d94263fbfdaf765aa3ea0773d36d3319083c7788a220f6",
+  "discovery/live_validation/scoring.py": "0705ebc4feafa04bc4e5a0e87ea46abf62dba908e11eb20b42c519641520d3b0",
+  "discovery/live_validation/final_raw_data_audit.md": "ff94b4bf77831a2839b5f34d454e2a7754c5d13c597047995cf340294c818bcd",
+  "discovery/live_validation/recomputed_metrics.csv": "b980802dc664f9e8ea93658af8970428c4c48531c60845222dc0b32b61b9815f",
+  "discovery/live_validation/instance_method_completeness.csv": "1db1d4783d4410290c6d544f878a6015e0d2e3cd2c04b75ff32319f32199a5e1"
+}

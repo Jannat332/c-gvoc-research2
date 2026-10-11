@@ -33,154 +33,185 @@
 
 \author{Anonymous Authors}
 
+
+
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.95}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.90}
+\renewcommand{\dbltopfraction}{0.95}
+\renewcommand{\dblfloatpagefraction}{0.90}
+
+
+\setlength{\textfloatsep}{7pt plus 1pt minus 2pt}
+\setlength{\dbltextfloatsep}{7pt plus 1pt minus 2pt}
+\setlength{\floatsep}{6pt plus 1pt minus 1pt}
+\setlength{\dblfloatsep}{6pt plus 1pt minus 1pt}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.95}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.90}
+\renewcommand{\dbltopfraction}{0.95}
+\renewcommand{\dblfloatpagefraction}{0.90}
 \begin{document}
 \maketitle
 
 \begin{abstract}
-When humans encounter a blurry document or tiny print, we do not think harder---we grab a magnifying glass. Yet Vision-Language Models (VLMs) do the opposite: facing difficult documents, they spend compute in ``reasoning space''---generating long chains of thought or debating over the same blurry image. But if a vital dosage or decimal point vanished during downsampling, no amount of AI contemplation can recover unseen ink; the model simply hallucinates. We shift test-time compute to \textit{observation space} via \textbf{Grounded Value-of-Compute (\textsc{GVoC})}, equipping VLMs with an active magnifying glass. \textsc{GVoC} dynamically decides whether to answer immediately, zoom into a high-resolution crop, re-parse a table, or safely abstain. By estimating the counterfactual value of taking a closer look relative to token cost, \textsc{GVoC} reaches 70.2\% accuracy across 16,000 queries---improving over multi-agent debate by +5.8 points while using 23.7\% fewer tokens. When visual evidence is missing, AI needs better eyes, not longer thoughts.
+When Vision-Language Models (VLMs) encounter low-resolution documents, blurred text, or complex tables, standard test-time scaling methods spend inference compute in ``reasoning space''---generating longer chains of thought or multi-agent debate over the same compressed image. However, when visual tokens are physically lost during downsampling, deliberating over absent pixels cannot reconstruct missing information. We investigate whether test-time compute is better spent in \textit{observation space} via \textbf{Grounded Value-of-Compute (\textsc{GVoC})}, dynamically deciding whether to answer immediately, inspect a high-resolution crop, re-parse structured tables, or safely abstain by weighing expected accuracy gains against token costs. 
+In an offline 16,000-query counterfactual simulation where inputs are synthetically degraded, selective observation scaling improves accuracy to 70.4\% while using 28.1\% fewer tokens than multi-agent debate (64.4\%). 
+However, in a live empirical pilot on 100 genuine visual documents using Mistral Pixtral-12B, intervention-based methods underperformed direct zero-shot inference: direct inference achieved \textbf{82.0\% accuracy at 1,428 tokens}, whereas original \textsc{GVoC} achieved only \textbf{72.0\% accuracy at 2,889 tokens} ($p = 0.013$, $+101\%$ token cost), and a conservative regularizer (C-\textsc{GVoC}) reached \textbf{76.0\% at 1,676 tokens}.
+Targeted forensic diagnostics reveal why simulated gains reversed in live deployment: multi-turn intervention prompts collided with token limits (causing truncations in 66.7\% of cases), and unguided cropping severed data values from essential headers and units. Our work demonstrates that while observation scaling is conceptually sound when visual evidence is missing, practical test-time intervention requires format-constrained decoding and context-preserving localization rather than isolated cropping.
 \end{abstract}
+
+% Table 1 declared on Page 1 -> floats to top of Page 2
 \begin{table*}[t]
 \centering
 \small
 \renewcommand{\arraystretch}{0.88}
-\begin{tabular}{lccc}
+\begin{tabularx}{\textwidth}{@{} p{3.2cm} p{3.6cm} p{3.6cm} X @{}}
 \toprule
-\textbf{Method} & \textbf{Overall Acc. (\%)} $\uparrow$ & \textbf{Tokens / Query} $\downarrow$ & \textbf{Oracle Regret} $\downarrow$ \\
+\textbf{Document Type \& Query} & \textbf{Direct / Deliberation Approach} & \textbf{Adaptive Observation Approach} & \textbf{Why Closer Inspection Is Needed} \\
 \midrule
-Monolithic Zero-Shot VLM & 12.5 $\pm$ 0.5 & 250 & 6.710 \\
-Confidence-Based Router & 61.1 $\pm$ 0.8 & 355 & 2.689 \\
-MACT \citep{yu2025visual} & 64.4 $\pm$ 0.7 & 359 & 2.659 \\
-Deterministic Rule Baseline & \textbf{89.0} $\pm$ 0.5 & 368 & 0.521 \\
+\textit{Medical Prescription Scan:} \newline ``What is the dosage?'' \newline (True: \textbf{0.5\,mg}; decimal blurred). & Direct inference sees ``05\,mg''; debate deliberates over blur $\to$ hallucinates ``50\,mg'' (359 tokens). & Controller inspects 300\,DPI native crop $\to$ resolves decimal point: ``0.5\,mg'' (274 tokens). & Deliberation cannot recover optical bits lost to downsampling. Native resolution recovers missing evidence. \\
 \midrule
-\textsc{GVoC} (Point-Estimate) & 70.2 $\pm$ 0.7$^\dagger$ & 274 ($-23.7\%$) & 0.412 ($-84.5\%$) \\
-\textbf{C-\textsc{GVoC} (Conservative LCB, Ours)} & \textbf{70.4} $\pm$ \textbf{0.7}$^\dagger$ & \textbf{258} ($-28.1\%$) & \textbf{0.395} ($-85.1\%$) \\
-\midrule
-Evaluated-Action Oracle ($\mathcal{A}^*$) & 90.3 $\pm$ 0.5 & 344 & 0.000 \\
+\textit{Financial Earnings Table:} \newline ``What is operating income?'' \newline (True: \textbf{-\$14.2\,M}; parens negative). & Direct zero-shot misses parentheses in downsampled image $\to$ predicts positive ``+\$14.2M''. & Re-execution parser re-aligns row stub and headers $\to$ reads negative ``-\$14.2M''. & Spatial layout alignment prevents sign inversions caused by isolated character misreadings. \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \vspace{-2mm}
-\caption{\textbf{Headline Benchmark Performance ($N = 16,000$ Queries).} $^\dagger p < 0.001$ vs.\ MACT. The Deterministic Rule achieves peak raw accuracy (89.0\%) by intervening aggressively on $>85\%$ of queries (368 tokens). C-\textsc{GVoC} integrates epistemic uncertainty penalization ($\kappa = 0.4$), eliminating spurious Type-I interventions on clean documents and achieving 70.4\% accuracy with only 258 tokens ($-28.1\%$) and lowest regret (0.395). Full breakdowns appear in Appendix Table~\ref{tab:master_benchmark_app}.}
-\label{tab:headline_benchmark}
-\vspace{2mm}
+\caption{\textbf{Motivating Concrete Examples: Why Observation Scaling Is Needed Over Pure Deliberation.} \textit{Note: Conceptual illustrative cases demonstrating the theoretical failure mode of reasoning over downsampled inputs.} When optical signals are missing, generating additional reasoning tokens leads to plausible hallucinations; acquiring targeted visual evidence resolves ambiguity when context is preserved.}
+\label{tab:example_cases}
+\vspace{-3mm}
 \end{table*}
+
 \section{Introduction}
 \label{sec:intro}
 
-Imagine a doctor reviewing a digital prescription scan where the decimal point between ``0.5\,mg'' and ``50\,mg'' is blurred into an illegible smudge. What should the doctor do? Sitting at a desk in deep contemplation---or debating with colleagues about what the smudge ``might'' mean---cannot bring back erased ink. The only sensible action is to grab a magnifying glass and inspect the high-resolution original.
+Imagine a doctor reviewing a digital prescription scan where the decimal point between ``0.5\,mg'' and ``50\,mg'' is blurred into an illegible smudge. Sitting at a desk in deep contemplation---or debating with colleagues about what the smudge ``might'' mean---cannot bring back erased ink. The only sensible action is to grab a magnifying glass and inspect the high-resolution original.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.72\columnwidth]{figures/fig1_motivational_teaser.png}
-\vspace{-3.5mm}
-\caption{\textbf{Reasoning vs.\ observation scaling.} MACT debates over static evidence; \textsc{GVoC} acquires missing optical evidence when cost-effective.}
+\includegraphics[width=0.56\columnwidth]{figures/fig1_motivational_teaser.png}
+\vspace{-2.5mm}
+\caption{\textbf{Reasoning vs.\ observation scaling (Conceptual illustration).} Deliberating over blurred evidence cannot recover erased pixels. In contrast, acquiring high-resolution optical evidence resolves visual ambiguity when cost-effective. \textit{Note: Conceptual illustration; token numbers reflect simulation benchmark averages.}}
 \label{fig:teaser}
-\vspace{-4.5mm}
+\vspace{-3.5mm}
 \end{figure}
-Yet modern AI systems do the opposite. When Vision-Language Models (VLMs) read complex invoices, financial reports, or lab results, images are compressed to fit fixed neural networks, causing tiny numbers, minus signs ($-$), or footnotes to physically vanish \citep{cui2021document, mathew2021docvqa, tablebench2024, wang2024mmlongbenchdoc}. Faced with uncertainty, existing methods force the model to ``think harder'' in \textbf{reasoning space}---spending hundreds of tokens on chains of thought or multi-agent debate over the same blurry image \citep{snell2024scaling, tong2026diversity, yu2025visual, wei2022chain}. But no amount of internal reasoning can recover visual evidence that was never observed; deliberating over absent tokens merely yields convincing hallucinations \citep{mirage2026illusion}.
 
-This contrast leads to our central question: \textit{When an AI is uncertain about a visual document, should it think longer, or should it look closer?}
+Yet modern AI systems often do the opposite. When Vision-Language Models (VLMs) read complex invoices, financial reports, or lab results, images are compressed to fit fixed neural network token grids, causing tiny numbers, minus signs ($-$), or footnotes to physically vanish \citep{cui2021document, mathew2021docvqa, tablebench2024, wang2024mmlongbenchdoc}. Faced with uncertainty, existing methods force the model to ``think harder'' in \textbf{reasoning space}---spending hundreds of tokens on chains of thought or multi-agent debate over the same blurry image \citep{snell2024scaling, yu2025visual, wei2022chain}. But no amount of internal reasoning can recover visual evidence that was never observed; deliberating over absent tokens merely produces convincing hallucinations \citep{liu2024llavanext}.
 
-We introduce \textbf{Grounded Value-of-Compute (\textsc{GVoC})}, shifting test-time scaling to \textbf{observation space} like an investigator with a magnifying glass. At each step, it chooses among four actions: \textbf{stop} if evidence is clear, \textbf{re-ground} on a high-resolution crop (60--120 tokens) if text is blurred, \textbf{re-execute} structured table parsing if layout is complex, or \textbf{abstain} if unrecoverable. \textsc{GVoC} guides this choice via \textbf{counterfactual intervention value}---weighing expected accuracy gain over stopping against token cost---trained offline via same-state branching from frozen states \citep{swaminathan2015counterfactual}.
+This fundamental contrast motivates our research question: \textit{When an AI system is uncertain about a visual document, should it think longer, or should it look closer?}
+
+We investigate shifting test-time compute from reasoning space to \textbf{observation space} via \textbf{Grounded Value-of-Compute (\textsc{GVoC})}. At each step, a lightweight controller evaluates four actions: \textbf{stop} if evidence is clear, \textbf{re-ground} on a high-resolution crop (60--120 tokens) if text is blurred, \textbf{re-execute} structured table parsing if layout is complex, or \textbf{abstain} if unrecoverable. Rather than intervening blindly, \textsc{GVoC} guides this choice by estimating the \textbf{counterfactual intervention value}---the estimated accuracy improvement from taking an action compared to taking no action from the exact same state---balancing expected gains against token costs.
 
 \paragraph{Contributions.}
-(1)~\textbf{Observation scaling}: allocating compute to acquire missing visual evidence rather than static reasoning;
-(2)~\textbf{Intervention value}: estimating whether an action improves accuracy over stopping per unit cost;
-(3)~\textbf{Same-state evaluation}: comparing candidate actions from frozen states to isolate causal effects.
+(1)~\textbf{Observation Scaling}: We formalize allocating test-time compute to acquire missing visual evidence rather than generating repetitive reasoning tokens over degraded inputs.
+(2)~\textbf{Dual Empirical Evaluation}: Across a 16k-query simulation and a 100-query live pilot (Mistral Pixtral-12B), we document where simulation gains succeed and where live execution fails.
+(3)~\textbf{Forensic Bottlenecks}: We identify two critical real-world failure modes that synthetic simulation obscured: prompt token truncation and spatial context destruction from isolated cropping.
 
-\section{Why More Reasoning Is Not Always the Answer}
+\section{Why More Reasoning Cannot Recover Missing Pixels}
 \label{sec:why_not_reasoning}
 
-In visual document understanding, failures frequently stem from resolution loss rather than logical errors. When documents are downscaled, fine characters fall below the physical resolution needed for recognition. Think of an investigator examining a blurred photograph of a license plate: no amount of contemplative debate can magically reveal a blurred digit that was never captured. The only rational way to resolve ambiguity is to zoom in. Generating more reasoning tokens cannot reconstruct visual details that were never observed. Allocating further reasoning compute over degraded inputs wastes tokens and induces hallucinations \citep{mirage2026illusion}. A formal information-theoretic limit under the Data Processing Inequality is provided in Appendix~\ref{app:proofs}.
+In visual document understanding, errors frequently stem from optical resolution loss rather than logical flaws. When documents are downscaled, fine print falls below the physical resolution needed for recognition. Like an investigator examining a blurred photograph of a license plate, no amount of contemplative debate can recover erased ink; the only rational remedy is to zoom in. Formally, by the Data Processing Inequality \citep{cover1991elements}, linguistic processing over downsampled tokens cannot increase mutual information about erased optical details ($I(Y^*; \mathcal{M}_{\text{text}}(\mathcal{I}_{\text{down}}, \mathcal{Q}) \mid \mathcal{I}_{\text{down}}, \mathcal{Q}) = 0$; Appendix~\ref{app:proofs}). Generating reasoning tokens over absent evidence wastes tokens and induces hallucinations.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.95\columnwidth]{figures/fig2_gvoc_architecture.png}
+\vspace{-2.5mm}
+\caption{\textbf{\textsc{GVoC} Decision Architecture.} Stage 1 extracts diagnostic signals (input image, query, and telemetry dispersion). Stage 2 evaluates candidate actions using a conservative cost-benefit ratio ($\mathcal{V}_{\text{LCB}}$). Stage 3 executes the chosen intervention only when estimated gains justify token costs.}
+\label{fig:architecture}
+\vspace{-3mm}
+\end{figure}
+
+% Table 2 declared on Page 2 -> floats to top of Page 3
+\begin{table*}[t]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{0.80}
+\begin{tabularx}{\textwidth}{@{} p{3.8cm} c c c X @{}}
+\toprule
+\textbf{Evaluation Setting \& Method} & \textbf{Acc. (\%)} $\uparrow$ & \textbf{Tokens} $\downarrow$ & \textbf{Regret / Cost} & \textbf{Key Empirical Finding / Role} \\
+\midrule
+\multicolumn{5}{l}{\textbf{Part A: Live Foundation Model Pilot (Mistral Pixtral-12B, $N = 100$ Unperturbed Genuine Documents)}} \\
+\textbf{Direct Zero-Shot Inference} & \textbf{82.0} & \textbf{1,428} & Baseline & \textbf{Best overall accuracy}; zero intervention latency or overhead. \\
+Original \textsc{GVoC} (Unconstrained) & 72.0 & 2,889 & $+101\%$ tok & Significant drop ($-10.0$ pts, $p = 0.013$); severe token bloat. \\
+Conservative C-\textsc{GVoC} & 76.0 & 1,676 & $+17\%$ tok & Mitigates token waste, but remains 6.0 pts below direct ($p = 0.146$). \\
+\midrule
+\multicolumn{5}{l}{\textbf{Part B: Offline Policy-Simulation Benchmark ($N = 16,000$ Synthetic Episodes with Modeled Downsampling)}} \\
+Monolithic Zero-Shot VLM & 12.5 $\pm$ 0.5 & 250 & Regret 0.875 & Fails catastrophically under synthetic downsampling. \\
+Confidence-Based Router & 61.1 $\pm$ 0.8 & 355 & Regret 0.389 & Triggers unneeded interventions on ambiguous boundary cases. \\
+Multi-Agent Debate (MACT) & 64.4 $\pm$ 0.7 & 359 & Regret 0.356 & Costly reasoning loops over degraded visual tokens. \\
+Deterministic Rule Baseline & \textbf{89.0} $\pm$ 0.5 & 368 & Regret 0.110 & High accuracy but intervenes indiscriminately ($>85\%$ queries). \\
+\textsc{GVoC} (Point-Estimate) & 70.2 $\pm$ 0.7$^\dagger$ & 274 & Regret 0.076 & $+5.8$ pts, $-23.7\%$ tokens vs.\ debate ($p < 0.001$). \\
+\textbf{C-\textsc{GVoC} (Conservative LCB)} & \textbf{70.4} $\pm$ \textbf{0.7}$^\dagger$ & \textbf{258} & \textbf{Regret 0.052} & \textbf{Lowest simulated regret}; highest efficiency ($-28.1\%$ tokens). \\
+Evaluated-Action Oracle ($\mathcal{A}^*$) & 90.3 $\pm$ 0.5 & 344 & Regret 0.000 & Theoretical ceiling across candidate action set. \\
+\bottomrule
+\end{tabularx}
+\vspace{-2.5mm}
+\caption{\textbf{Live Pilot Results and Offline Policy-Simulation Results.} \textbf{Part A (Live Pilot):} Direct zero-shot achieves highest accuracy (82\%) at lowest token cost; live interventions degrade accuracy ($-10.0$ pts, $p=0.013$). \textbf{Part B (Offline Simulation):} Under modeled synthetic downsampling, selective observation scaling improves accuracy over debate (+5.8 pts) with 24\%--28\% fewer tokens ($p < 0.001$). \textit{Note: Simulation results are generated by a model of intervention outcomes under synthetic degradation; they are not accuracy measurements from 16,000 live VLM evaluations.}}
+\label{tab:main_results}
+\vspace{-3mm}
+\end{table*}
 
 \section{\textsc{GVoC}: Spend Compute Where It Helps}
 \label{sec:method}
 
-We view document understanding at test time as a sequential decision process. At each step, \textsc{GVoC} decides whether to finish the answer or spend compute acquiring better evidence.
+We model test-time document understanding as a sequential decision process. At each step, \textsc{GVoC} decides whether to finish the answer or spend compute acquiring better evidence.
 
-\subsection{Four Test-Time Actions}
-At state $s$, the controller selects among four actions: (1)~\textbf{Stop ($a_{\text{stop}}$)}: evidence is sufficient; emit the final answer immediately. (2)~\textbf{Re-Ground ($a_{\text{reground}}$)}: fine detail is missing; inspect a native-resolution crop (60--120 tokens). (3)~\textbf{Re-Execute ($a_{\text{reexec}}$)}: re-parse table structure under coordinate bindings (180--240 tokens). (4)~\textbf{Abstain ($a_{\text{abstain}}$)}: available evidence cannot support a reliable answer; emit $\bot$ (184 tokens).
+\subsection{Four Test-Time Candidate Actions}
+At state $s$, the controller evaluates four candidate actions: (1)~\textbf{Stop ($a_{\text{stop}}$)}: evidence is sufficient; emit final answer immediately; (2)~\textbf{Re-Ground ($a_{\text{reground}}$)}: inspect native-resolution crop (60--120 tokens); (3)~\textbf{Re-Execute ($a_{\text{reexec}}$)}: re-parse table structure under coordinate bindings (180--240 tokens); and (4)~\textbf{Abstain ($a_{\text{abstain}}$)}: emit fallback $\bot$ when evidence is insufficient (184 tokens).
 
-\subsection{Conservative Intervention Value (C-\textsc{GVoC})}
-To determine whether to intervene, \textsc{GVoC} evaluates the \textbf{Conservative Intervention Value (CIV)} under a telemetry-conditioned Lower Confidence Bound (LCB):
+\subsection{Conservative Value-of-Compute Gate}
+To decide whether to intervene, the system calculates a cost-benefit ratio for each candidate action using a \textbf{cautious Lower Confidence Bound (LCB)} decision rule:
+\vspace{-1.5mm}
 \begin{equation}
 \label{eq:voc_ratio}
 \mathcal{V}_{\text{LCB}}(s, a) = \frac{\max\big(0,\; \hat{\Delta P}_a(s) - \kappa \cdot \hat{\sigma}_a(s)\big)}{C(s, a) + \epsilon}
 \end{equation}
-where $\hat{\Delta P}_a(s) = P(Y=1 \mid s, a) - P(Y=1 \mid s, a_{\text{stop}})$ is expected marginal accuracy gain over stopping, $\hat{\sigma}_a(s)$ is epistemic standard error derived from state telemetry (cross-modal consensus discrepancy and evidence ambiguity; Appendix~\ref{app:telemetry}), $\kappa = 0.4$ is the conservative risk parameter, and $C(s, a) > 0$ is expected token cost ($\epsilon = 10^{-4}$). In plain terms, the numerator measures the \textit{certified minimum improvement} of taking a closer look, and the denominator measures what it costs.
-
-\textsc{GVoC} executes the feasible intervention with highest positive certified value: $a^* = \arg\max_{a \in \mathcal{M}(s)} \mathcal{V}_{\text{LCB}}(s, a)$. If no candidate intervention certifies positive marginal benefit ($\max_{a \neq a_{\text{stop}}} \mathcal{V}_{\text{LCB}}(s, a) \le 10^{-4}$), or when initial observation confidence is already sufficient ($P_{\text{stop}} \ge 0.70$ with clean geometry), the policy terminates immediately ($a_{\text{stop}}$), eliminating spurious Type-I intervention compute. If expected correctness remains below safety threshold $\tau_{\text{safe}}$ and active repair is unviable, the controller safely abstains ($a_{\text{abstain}}$).
+\vspace{-1.5mm}
+where $\hat{\Delta P}_a(s)$ is expected marginal accuracy gain over stopping immediately, $\hat{\sigma}_a(s)$ is an uncertainty dispersion proxy measuring variance across visual and textual features (Appendix~\ref{app:telemetry}), $\kappa = 0.4$ is a conservative risk parameter, and $C(s, a) > 0$ is expected token cost ($\epsilon = 10^{-4}$). In plain language: \textit{``Even after penalizing for uncertainty, does the conservative improvement from looking closer still justify the tokens spent?''} If no intervention offers a positive conservative benefit ($\le 10^{-4}$), or if observation confidence is high ($P_{\text{stop}} \ge 0.70$), the controller stops immediately ($a_{\text{stop}}$), preventing wasteful interventions.
 
 \subsection{Same-State Counterfactual Learning}
-Uncertainty alone does not mean an intervention will help. To measure whether an intervention actually changes the outcome, \textsc{GVoC} uses an offline same-state branching protocol ($N = 48,000$ transitions). We freeze an intermediate state $s$, execute alternative actions from that exact state, and compare their outcomes against ground truth. This isolates the true effect of each action from trajectory differences.
+Uncertainty alone does not mean an intervention will succeed. To learn when an intervention genuinely changes the answer, \textsc{GVoC} uses an offline same-state branching protocol ($N = 48,000$ transitions): testing alternative actions starting from the identical intermediate point to evaluate what would have happened, isolating action effects from trajectory differences. A lightweight predictor ($<2$ MB RAM) estimates advantage and token cost from simple diagnostic signals: predictive uncertainty, evidence scale, cross-modal alignment, and token budget.
 
-A lightweight dual-head predictor ($<2$ MB RAM; Appendix~\ref{app:telemetry}) estimates expected advantage, epistemic uncertainty, and token cost from simple diagnostic signals: predictive uncertainty, evidence scale, cross-modal alignment, and token budget. An attention-based verifier confirms spatial grounding; if attribution fails, emission is blocked, triggering re-grounding or abstention \citep{attribution2026coordinatefree}.
-
-\section{Experiments}
+\section{Empirical Results: Live Pilot vs. Offline Simulation}
 \label{sec:experiments}
 
-\paragraph{Experimental Setup.}
-We evaluate on \textbf{16,000 document queries} across four datasets: DocVQA, ChartQA, TableBench, and MMLongBench-Doc. We test four backbones: Pixtral 12B, Qwen2-VL 27B, GPT-OSS 120B, and Gemini 3.6 Flash (64k sessions, 384k runs). We measure Task Accuracy, Tokens per Query, and Empirical Oracle Regret:
-\begin{equation}
-\label{eq:regret}
-\mathcal{R}(\pi) = \frac{1}{N} \sum_{i=1}^N \left[ \text{Loss}(i, \pi(s_i)) - \min_{a \in \mathcal{A}} \text{Loss}(i, a) \right]
-\end{equation}
-where $\text{Loss}(i, a) = 0.85 \cdot \mathbb{I}[Y_i(a)=0] + 0.15 \cdot \frac{C_i(a)}{C_{\max}}$.
+\subsection{Live Model Pilot ($N = 100$, Mistral Pixtral-12B)}
+We evaluated 100 genuine document queries (50 DocVQA, 50 ChartQA) using Mistral Pixtral-12B via live API calls (300 executions; Table~\ref{tab:main_results}A, Figure~\ref{fig:results_contrast}A): (1)~\textbf{Direct zero-shot achieved highest accuracy} (\textbf{82.0\%}) at lowest cost (1,428 tokens). (2)~\textbf{Original \textsc{GVoC} degraded accuracy to 72.0\%} with $+101\%$ token inflation (2,889 tokens; McNemar $p = 0.0129$). (3)~\textbf{Conservative C-\textsc{GVoC} mitigated token waste} (1,676 tokens, $+17\%$), reaching \textbf{76.0\% accuracy} (6.0 pts below direct, $p = 0.1460$).
 
-As shown in Table~\ref{tab:headline_benchmark}, the Deterministic Rule achieves the highest raw accuracy (89.0\%) by intervening aggressively on $>85\%$ of queries (368 tokens). In contrast, \textsc{GVoC} is a selective, cost-aware policy that reaches 70.2\% accuracy with substantially fewer tokens (274) and the lowest oracle regret (0.412).
+\subsection{Offline Simulation Benchmark ($N = 16,000$)}
+Across 16,000 simulated episodes (DocVQA, ChartQA, TableBench, MMLongBench-Doc; Table~\ref{tab:main_results}B, Figure~\ref{fig:results_contrast}B) under modeled synthetic downsampling, \textsc{GVoC} reaches \textbf{70.2\% accuracy} with \textbf{274 tokens/query}, outperforming debate (64.4\%, 359 tokens) by +5.8 points with 23.7\% fewer tokens ($p < 0.001$). C-\textsc{GVoC} further suppresses wasteful interventions (258 tokens, regret 0.052 vs.\ oracle ceiling 90.3\%). We report Task Accuracy, Tokens/Query, and \textbf{Oracle Regret}---the gap between policy return and best candidate action (Appendix~\ref{app:prop1}).
+\textit{Simulation Discrepancy:} The simulation models severe synthetic blurring where unassisted zero-shot collapses (12.5\%) from optical erasure, whereas the live pilot evaluates genuine high-resolution documents where direct zero-shot succeeds at 82.0\%, rendering intervention overhead counterproductive.
 
-\subsection{Research Questions}
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.40\columnwidth]{figures/fig3_pareto_frontier.png}
+\vspace{-2.5mm}
+\caption{\textbf{Empirical Results: Live Pilot vs.\ Offline Policy Simulation.} (A) In the live foundation pilot ($N=100$, Pixtral-12B), direct inference achieves superior accuracy and lowest cost; interventions degrade performance. (B) In offline simulation ($N=16,000$), observation scaling outperforms debate baselines under synthetic downsampling.}
+\label{fig:results_contrast}
+\vspace{-3.5mm}
+\end{figure}
 
-\paragraph{RQ1: Observation vs.\ Reasoning Scaling.}
-\textbf{Hypothesis:} When visual evidence is downsampled, acquiring high-resolution observations improves accuracy more than generating reasoning chains over blurry inputs.
-\textbf{Evidence:} \textsc{GVoC} achieves \textbf{70.2\% accuracy} with \textbf{274 tokens/query}, outperforming MACT (64.4\%, 359 tokens) by +5.8 points while using 23.7\% fewer tokens ($p < 0.001$, Table~\ref{tab:headline_benchmark}). On DocVQA, where fine print is blurred, \textsc{GVoC} leads by +23.1 points (69.3\% vs.\ 46.2\%; Appendix Table~\ref{tab:master_benchmark_app}). \textit{Observation scaling helps when the missing information is visual detail.}
-
-\paragraph{RQ2: Counterfactual Value vs.\ Confidence-Only Routing.}
-\textbf{Hypothesis:} Estimating marginal benefit relative to stopping prevents unhelpful interventions better than raw uncertainty alone.
-\textbf{Evidence:} \textsc{GVoC} achieves 70.2\% accuracy and 0.412 regret vs.\ 61.1\% and 2.689 regret for the Confidence Router (Table~\ref{tab:headline_benchmark}). C-\textsc{GVoC} further suppresses Type-I compute harm via LCB uncertainty penalization, saving 16 tokens/query (258 tokens, regret 0.395). Removing advantage estimation degrades accuracy to 63.4\% (Appendix Table~\ref{tab:ablations}). \textit{Uncertainty asks if the model is unsure; intervention value asks if an action will actually help.}
-
-\paragraph{RQ3: Intervention Value Asymmetry.}
-\textbf{Hypothesis:} Intervening when evidence is sufficient degrades accuracy, but intervening when evidence is missing rescues failed queries.
-\textbf{Evidence:} On 4,240 queries where \textsc{GVoC} chose to stop, initial accuracy was 92.1\%; forcing re-grounding reduced accuracy to 84.6\% while wasting 118 tokens. Conversely, on 7,872 queries where \textsc{GVoC} re-grounded, stopping yielded only 14.8\% accuracy, whereas re-grounding rescued accuracy to \textbf{78.4\%} (+63.6 points). Across all queries, \textsc{GVoC} incurs an intervention harm rate of only \textbf{1.8\%}, compared to 14.2\% for MACT and 18.7\% for Always Re-Ground.
-
-\paragraph{RQ4: Cost Normalization and the Regret Frontier.}
-\textbf{Hypothesis:} Dividing expected benefit by token cost prevents expensive actions that yield negligible gains.
-\textbf{Evidence:} On the ablation split ($N=2,000$), full \textsc{GVoC} achieves 70.5\% accuracy with 272 tokens (regret 0.408; Appendix Table~\ref{tab:ablations}). Omitting cost normalization raises accuracy by only 0.6 points (71.1\%) while increasing token consumption by \textbf{51.5\%} (412 tokens) and inflating regret to 1.840.
-
-\paragraph{Real-World Action Dynamics.}
-How does \textsc{GVoC} deploy compute across diverse document formats in practice? Across all 16,000 queries, the controller stopped immediately on 26.5\% of questions where standard resolution sufficed, avoiding unnecessary overhead. On DocVQA, where tiny text causes optical degradation, it actively re-grounded on 74.2\% of instances. On TableBench, where spatial misalignment dominates, it triggered structured re-execution on 61.5\% of queries. Finally, on heavily corrupted documents, it safely abstained on 6.2\% of queries rather than hallucinating unsupported claims. This dynamic responsiveness confirms that \textsc{GVoC} does not apply a rigid one-size-fits-all policy, but surgically allocates compute to the precise bottleneck of each document.
-
-\section{What Test-Time Scaling Should Spend Compute On}
-\label{sec:discussion}
-
-\textbf{Observation Bottlenecks.} When documents contain dense text or small tables, errors often arise because visual tokens were lost during downsampling. In these cases, reasoning over degraded inputs cannot recover missing detail. Observation-space scaling directly restores the necessary evidence, providing large gains on DocVQA and perceptual chart queries.
-
-\textbf{Reasoning Bottlenecks.} When visual evidence is already visible, reasoning-space scaling can be more effective. On ChartQA arithmetic questions, MACT outperforms \textsc{GVoC} (78.7\% vs.\ 56.6\%) because multi-agent dialogue provides scratchpad computation for numerical calculations. Observation scaling does not replace reasoning scaling when complex calculation is required.
-
-\textbf{The General Principle.} The right destination for test-time compute depends on the current bottleneck. On ChartQA overall, MACT achieves 72.2\% vs.\ 69.0\% for \textsc{GVoC}, but on perceptual queries \textsc{GVoC} leads (76.6\% vs.\ 68.2\%). In an evaluated stress test of 1,000 occluded documents (Appendix~\ref{app:stress_test}), monolithic models hallucinated in 98.4\% of cases and MACT in 94.2\% (burning 2,840 tokens). In contrast, \textsc{GVoC} abstained on \textbf{89.6\% of unanswerable cases} using 184 tokens, showing that \textsc{GVoC} abstained on a large fraction of evaluated unanswerable cases.
+\section{Why Live Interventions Underperformed}
+\label{sec:diagnostics}
+Targeted probes reveal suggestive failure mechanisms:
+(1)~\textbf{Prompt Truncation ($N = 12$)}: multi-turn prompts under a 60-token ceiling truncated in 66.7\% of cases (8/12). Concise prompting eliminated truncation ($p = 0.0078$), but the shift from 58.3\% (7/12) to 83.3\% (10/12) is not statistically significant ($p = 0.3750$). Truncation elimination is a format fix, not proven accuracy gain.
+(2)~\textbf{Spatial Context Loss ($N = 20$)}: across 20 exploratory queries (10 unique pilot images), center cropping collapsed accuracy to \textbf{25.0\%} (5/20) vs.\ 60.0\% downsampled (raw $p = 0.0391$; Bonferroni $p_{\text{adj}} = 0.1563$), showing that unguided cropping severs values from headers.
+(3)~\textbf{Uncalibrated Dispersion}: $\hat{\sigma}$ correlated negatively with error ($r = -0.2173, p = 0.0020$). Measuring feature variance rather than uncertainty, it triggered interventions on confident errors and abstained on correctable cases. These small probes offer suggestive mechanisms, not definitive causal proofs for the live gap.
 
 \section{Related Work}
 \label{sec:related_work}
+\textbf{Test-Time Compute Allocation.} Prior work scales reasoning tokens via chains of thought \citep{wei2022chain}, self-consistency \citep{wang2022self}, search \citep{yao2023tree, besta2024graph}, or debate \citep{snell2024scaling, du2023improving, liang2023encouraging, yu2025visual}, holding inputs static. \textsc{GVoC} explores evidence acquisition compute.
+\textbf{Document Resolution \& Tiling.} While LayoutLM architectures \citep{xu2020layoutlm, xu2021layoutlmv2, huang2022layoutlmv3, kim2022ocr} and tiling models \citep{appalaraju2021docformer, blecher2023nougat, ye2023ureader, liu2024llavanext} process entire pages at high uniform token cost across benchmarks \citep{mathew2021docvqa, masry2022chartqa, tanaka2021visualmrc, tablebench2024, wang2024mmlongbenchdoc, cui2021document}, \textsc{GVoC} explores selective crops.
+\textbf{Active Perception \& Value of Information.} Grounded in active perception \citep{bajcsy1988active}, Value of Information \citep{howard1966information, horvitz1988reasoning, russell1991right}, tool use \citep{schick2023toolformer, suris2023vipergpt, yang2023mm}, selective prediction \citep{geifman2017selective, kamath2020selective}, and uncertainty \citep{hendrycks2017baseline, lakshminarayanan2017simple}, \textsc{GVoC} formalizes cost-normalized visual intervention.
 
-\textbf{Test-Time Compute Scaling.} Prior literature scales inference compute by extending chain-of-thought trajectories, tree search, or multi-agent debate \citep{snell2024scaling, tong2026diversity, wan2026testtimesurvey, yu2025visual, tableqa2025naacl, zhou2026awm, zheng2026towards, wu2026what}. These methods keep the underlying visual evidence fixed; \textsc{GVoC} scales evidence acquisition directly.
-
-\textbf{Document Understanding and High-Resolution Models.} Benchmark studies demonstrate steep performance degradation under downsampling \citep{mathew2021docvqa, masry2022chartqa, tablebench2024, wang2024mmlongbenchdoc, cui2021document, citevqa2026, yu2026dochop}. While specialized architectures process entire documents at native resolution \citep{ye2023ureader, liu2024llavanext, blecher2023nougat, appalaraju2021docformer} or deploy routed agent teams \citep{rahman2026capabilityrouted, hu2026visdocagentbench, zhang2026dscaleagent}, they incur high token overhead on simple queries. In contrast, \textsc{GVoC} selectively acquires high-resolution crops only when the expected improvement justifies the cost.
-
-\textbf{Selective Intervention and Evidence Grounding.} Prior work investigates process supervision \citep{lightman2023verify, internvl2025visualprm}, active perception \citep{bajcsy1988active, suris2023vipergpt, schick2023toolformer}, Value of Information \citep{howard1966information, horvitz1988reasoning, russell1991right}, and selective prediction \citep{geifman2017selective, kamath2020selective}. Prior work addresses parts of this problem, but does not learn the cost-normalized counterfactual benefit of concrete visual interventions relative to stopping.
-
-\section{Limitations}
+\section{Limitations \& Ethics}
 \label{sec:limitations}
-
-(1)~\textsc{GVoC} lacks an integrated calculator, so arithmetic-heavy queries favor reasoning-space methods. (2)~Re-grounding assumes access to native-resolution document pixels. (3)~Continuous token-matched comparisons against variable CoT/MCTS budgets remain future work.
+(1)~No symbolic solver. (2)~Re-grounding requires native pixels. (3)~Telemetry proxies are uncalibrated. (4)~Larger live trials remain future work. We evaluate on public benchmarks with no private data and make no deployment reliability claims.
 
 \section{Conclusion}
 \label{sec:conclusion}
-
-Test-time scaling for visual document understanding should not be limited to generating more reasoning tokens. \textsc{GVoC} treats inference compute as a choice between stopping and acquiring additional evidence, using counterfactual intervention value to guide that choice. Across 16,000 queries, \textsc{GVoC} reaches 70.2\% accuracy with 274 tokens per query, improving over MACT by 5.8 points while using 23.7\% fewer tokens. These results demonstrate that observation-space scaling is most useful when visual evidence is the bottleneck, while reasoning-space scaling remains valuable for computation-heavy tasks.
-
-\section{Ethics Statement}
-\label{sec:ethics}
-
-We evaluate on public, non-sensitive document benchmarks and do not collect personal or private user data. The method is intended to reduce unsupported answers through selective evidence acquisition and abstention. We make no deployment-level reliability claims.
+When fine details are lost during downsampling, reasoning tokens cannot recover missing optical evidence. While offline simulation showed observation scaling gains under synthetic degradation, our live foundation pilot (Mistral Pixtral-12B, $N=100$) revealed that active interventions underperformed direct zero-shot inference (82.0\% at 1,428 tokens vs.\ 72.0\% for \textsc{GVoC} and 76.0\% for C-\textsc{GVoC}). Forensic probes traced this discrepancy to prompt token ceilings, spatial context loss from unguided cropping, and miscalibrated telemetry. Turning theoretical observation scaling into real gains requires format-safe prompting, context-preserving localization, and calibrated stopping rules.
 
 \clearpage
 \bibliographystyle{acl_natbib}
@@ -242,9 +273,10 @@ where $\mathcal{S}^*$ is the unobserved true environment state comprising raw un
 By construction, each active evidence-acquisition intervention requires optical cropping and autoregressive decoding with strictly positive marginal token cost: $C(s_t, a) \ge C_{\min} > 0$ (empirically $C_{\min} \approx 60$ tokens for localized patch cropping). Since probability bounds restrict counterfactual accuracy gain to $\Delta P_a(s_t) \le 1.0$, the Value-of-Compute ratio is upper-bounded by $\mathcal{V}(s_t, a) \le 1.0 / (C_{\min} + \epsilon) < \infty$. When $\max_{a \neq a_{\text{stop}}} \mathcal{V}(s_t, a) \le \tau$, immediate termination $a_{\text{stop}}$ is deterministically executed. Furthermore, because Algorithm~\ref{alg:gvoc_policy} enforces an explicit hard horizon $t \le T_{\max} = 3$, the execution length satisfies $T^* \le \min(t_{\text{stop}}, T_{\max}) \le 3$. This operational constraint structurally prevents runaway debate rounds and unbounded token accumulation.
 
 \subsection{Proposition 1: Error-Propagation Bound under Telemetry Estimation Gaps}
+\label{app:prop1}
 
 \begin{proposition}[Error-Propagation Bound under Telemetry Estimation Gaps]
-Let $a^*_i = \arg\min_{a \in \mathcal{A}} \text{Loss}(i, a)$ denote the oracle-optimal action under loss $\text{Loss}(i, a) = \lambda \cdot \mathbb{I}[Y_i(a) = 0] + (1 - \lambda) \cdot \frac{C_i(a)}{C_{\max}}$. Suppose advantage estimator $\hat{\Delta P}_a(s) = f_\psi(s, a)$ and cost predictor $\hat{C}_a(s) = g_\omega(s, a)$ have bounded estimation errors: $|\hat{\Delta P}_a(s) - \Delta P_a(s)| \le \delta_P$ and $|\hat{C}_a(s) - C_a(s)| \le \delta_C$. Then, the empirical regret $\mathcal{R}(\pi)$ incurred by policy $\pi$ satisfies the conditional error bound:
+Suppose the ratio ranking $\hat{\Delta P}_a / \hat{C}_a$ approximates the continuous Lagrangian relaxation of the loss objective at shadow price $\lambda^*$, and let $a^*_i = \arg\min_{a \in \mathcal{A}} \text{Loss}(i, a)$ denote the oracle-optimal action under loss $\text{Loss}(i, a) = \lambda \cdot \mathbb{I}[Y_i(a) = 0] + (1 - \lambda) \cdot \frac{C_i(a)}{C_{\max}}$. Suppose advantage estimator $\hat{\Delta P}_a(s) = f_\psi(s, a)$ and cost predictor $\hat{C}_a(s) = g_\omega(s, a)$ have bounded estimation errors: $|\hat{\Delta P}_a(s) - \Delta P_a(s)| \le \delta_P$ and $|\hat{C}_a(s) - C_a(s)| \le \delta_C$. Then, under positive margin gap $\Delta \mathcal{V}_{\text{margin}} > 0$, the empirical regret $\mathcal{R}(\pi)$ incurred by policy $\pi$ satisfies the conditional error bound:
 \begin{equation}
 \begin{split}
 \mathcal{R}(\pi) &\le 2\lambda \cdot \max_a \mathbb{I}[|\hat{\mathcal{V}}(s, a) - \mathcal{V}(s, a)| > \Delta \mathcal{V}_{\text{margin}}] \\
@@ -270,7 +302,7 @@ Under bounded estimation error $\delta_C$, $|C_i(\hat{a}) - C_i(a^*_i)| \le 2\de
 \label{thm:dpi}
 Let $\mathcal{I}_{\text{down}} = \text{Downsample}(\mathcal{I})$ denote an input image downsampled by spatial factor $\sigma > 1$, and let $\Delta \mathcal{I}_{\text{opt}} = H(\mathcal{I} \mid \mathcal{I}_{\text{down}}) > 0$ denote the non-zero conditional entropy of unresolved optical details.
 \begin{enumerate}[label=(\alph*),noitemsep]
-    \item Let $\mathcal{M}_{\text{text}}$ denote any autoregressive sampling or conversational multi-agent dialogue process operating exclusively on the sequence formed by query $\mathcal{Q}$ and downsampled image tokens from $\mathcal{I}_{\text{down}}$. By the Data Processing Inequality, the mutual information conditioned on the downsampled input satisfies:
+    \item Let $\mathcal{M}_{\text{text}}$ denote any autoregressive sampling or conversational multi-agent dialogue process operating exclusively on the sequence formed by query $\mathcal{Q}$ and downsampled image tokens from $\mathcal{I}_{\text{down}}$. By the Data Processing Inequality for Markov chains \citep{cover1991elements}, the mutual information conditioned on the downsampled input satisfies:
     \begin{equation}
     I(Y^*; \mathcal{M}_{\text{text}}(\mathcal{I}_{\text{down}}, \mathcal{Q}) \mid \mathcal{I}_{\text{down}}, \mathcal{Q}) = 0
     \end{equation}
@@ -282,7 +314,7 @@ Let $\mathcal{I}_{\text{down}} = \text{Downsample}(\mathcal{I})$ denote an input
 \begin{proof}
 Let $(\mathcal{I}, \mathcal{Q}, Y^*)$ form a document visual question answering system, where $Y^*$ is the true ground-truth answer. The downsampling operator $\tilde{\mathcal{I}} = \text{Resize}(\mathcal{I}, H_0 \times W_0)$ is a deterministic many-to-one mapping under spatial factor $\sigma > 1$. By the definition of conditional entropy: $H(\mathcal{I}) = H(\tilde{\mathcal{I}}) + H(\mathcal{I} \mid \tilde{\mathcal{I}})$. Whenever the uncompressed page contains fine typographic characters whose spatial frequency exceeds the Nyquist cutoff of the downsampled grid (e.g., 8pt font rendered across $< 4$ pixels), we have $H(\mathcal{I} \mid \tilde{\mathcal{I}}) = \Delta \mathcal{I}_{\text{opt}} > 0$.
 
-Now consider any text-based deliberative reasoning procedure $\mathcal{M}_{\text{text}}$ (such as MACT's multi-agent dialogue or multi-turn Chain-of-Thought). The sequence of generated deliberation tokens $T = (w_1, w_2, \dots, w_K)$ forms a Markov chain: $(\mathcal{I}, Y^*) \longrightarrow (\tilde{\mathcal{I}}, \mathcal{Q}) \longrightarrow T \longrightarrow \hat{Y}$. By the Data Processing Inequality (DPI) for Markov chains: $I(Y^*; T \mid \tilde{\mathcal{I}}, \mathcal{Q}) = 0$. Because intermediate textual conversation $T$ is conditionally independent of raw image $\mathcal{I}$ given downsampled input $\tilde{\mathcal{I}}$, mutual information between emitted answer $\hat{Y}$ and ground-truth answer $Y^*$ cannot exceed the mutual information present in the downsampled canvas: $I(Y^*; \hat{Y}) \le I(Y^*; \tilde{\mathcal{I}}, \mathcal{Q}) < I(Y^*; \mathcal{I}, \mathcal{Q})$.
+Now consider any text-based deliberative reasoning procedure $\mathcal{M}_{\text{text}}$ (such as MACT's multi-agent dialogue or multi-turn Chain-of-Thought). The sequence of generated deliberation tokens $T = (w_1, w_2, \dots, w_K)$ forms a Markov chain: $(\mathcal{I}, Y^*) \longrightarrow (\tilde{\mathcal{I}}, \mathcal{Q}) \longrightarrow T \longrightarrow \hat{Y}$. By the Data Processing Inequality (DPI) for Markov chains \citep{cover1991elements}: $I(Y^*; T \mid \tilde{\mathcal{I}}, \mathcal{Q}) = 0$. Because intermediate textual conversation $T$ is conditionally independent of raw image $\mathcal{I}$ given downsampled input $\tilde{\mathcal{I}}$, mutual information between emitted answer $\hat{Y}$ and ground-truth answer $Y^*$ cannot exceed the mutual information present in the downsampled canvas: $I(Y^*; \hat{Y}) \le I(Y^*; \tilde{\mathcal{I}}, \mathcal{Q}) < I(Y^*; \mathcal{I}, \mathcal{Q})$.
 
 Specifically, for any resolution-limited query $(\mathcal{I}, \mathcal{Q}) \in \mathcal{Q}_{\text{res}}$, where $H(Y^* \mid \mathcal{I}, \mathcal{Q}) = 0$, $H(Y^* \mid \tilde{\mathcal{I}}, \mathcal{Q}) > 0$, and the target entity is conditionally independent of pre-training language priors $I(Y^*; \mathcal{K}_{\text{prior}} \mid \mathcal{Q}) = 0$, the true answer cannot be deduced from linguistic context. Therefore, no sequence of conversational tokens $T$ generated from $(\tilde{\mathcal{I}}, \mathcal{Q})$ can reduce this residual conditional entropy to zero, regardless of deliberation tokens consumed ($C_{\text{text}} \to \infty$).
 
@@ -429,7 +461,7 @@ Deterministic Rules & 89.6 & 85.5 & 89.4 & 93.5 & 90.0 & 371 \\
 \end{tabular}
 }
 \vspace{-2mm}
-\caption{\textbf{Model-Stratified Performance Breakdowns Across All 4 Foundation Backbones ($N = 4,000$ each).}}
+\caption{\textbf{Model-Stratified Performance Breakdowns Across All 4 Foundation Backbones ($N = 4,000$ each, Offline Simulation Profiles).}}
 \label{tab:model_breakdowns}
 \end{table*}
 
@@ -470,24 +502,24 @@ Deterministic Rules & 89.6 & 85.5 & 89.4 & 93.5 & 90.0 & 371 \\
 \toprule
 \textbf{Ablation Configuration} & \textbf{Acc. (\%)} & \textbf{Tokens} & \textbf{Regret} & \textbf{Failure Mode} \\
 \midrule
-\textbf{Full C-\textsc{GVoC} Framework ($\kappa=0.4$)} & \textbf{70.8} & \textbf{258} & \textbf{0.395} & Certified optimal routing \\
-(1) Original \textsc{GVoC} ($\kappa=0$, Point-Estimate) & 70.5 & 272 & 0.408 & Type-I UCR inflation \\
-(2) w/o Clean-State Suppression & 70.5 & 284 & 0.425 & Spurious verification on clean inputs \\
-(3) w/o Cost Denominator ($\mathcal{V} = \Delta P_a$) & 71.1 & 412 & 1.840 & Massive token inflation \\
-(4) w/o Advantage ($\mathcal{V} = P(Y \mid a)/C_a$) & 63.4 & 295 & 2.150 & Intervenes on easy samples \\
-(5) w/o Attribution Verifier ($\mathcal{V}_{\text{attr}}$) & 61.8 & 265 & 1.920 & Mirage reasoning hallucinations \\
-(6) Text-Only Action (No Native Crop) & 58.2 & 348 & 2.710 & Degenerates toward MACT \\
-(7) Static Confidence Threshold ($\theta = 0.70$) & 62.1 & 352 & 2.580 & Over-triggering on boundary cases \\
+\textbf{Full C-\textsc{GVoC} Framework ($\kappa=0.4$)} & \textbf{70.8} & \textbf{258} & \textbf{0.052} & Optimal risk-bounded routing \\
+(1) Original \textsc{GVoC} ($\kappa=0$, Point-Estimate) & 70.5 & 272 & 0.060 & Type-I UCR inflation \\
+(2) w/o Clean-State Suppression & 70.5 & 284 & 0.068 & Spurious verification on clean inputs \\
+(3) w/o Cost Denominator ($\mathcal{V} = \Delta P_a$) & 71.1 & 412 & 0.285 & Massive token inflation \\
+(4) w/o Advantage ($\mathcal{V} = P(Y \mid a)/C_a$) & 63.4 & 295 & 0.320 & Intervenes on easy samples \\
+(5) w/o Attribution Verifier ($\mathcal{V}_{\text{attr}}$) & 61.8 & 265 & 0.290 & Mirage reasoning hallucinations \\
+(6) Text-Only Action (No Native Crop) & 58.2 & 348 & 0.380 & Degenerates toward MACT \\
+(7) Static Confidence Threshold ($\theta = 0.70$) & 62.1 & 352 & 0.355 & Over-triggering on boundary cases \\
 \bottomrule
 \end{tabular}
 }
 \vspace{-2mm}
-\caption{\textbf{Systematic Component Ablation Study ($N = 2,000$ Stratified Subset).} Full C-\textsc{GVoC} scores 70.8\% / 258 tokens on this stratified ablation split, consistent with 70.4\% / 258 tokens across the full benchmark (Table~\ref{tab:headline_benchmark}). Epistemic uncertainty penalization ($\kappa = 0.4$) and clean-state suppression save 14 tokens/query while reducing regret to 0.395.}
+\caption{\textbf{Systematic Component Ablation Study ($N = 2,000$ Stratified Subset).} Full C-\textsc{GVoC} scores 70.8\% / 258 tokens on this stratified ablation split, consistent with 70.4\% / 258 tokens across the full benchmark (Table~\ref{tab:main_results}). Epistemic uncertainty penalization ($\kappa = 0.4$) and clean-state suppression save 14 tokens/query while reducing regret to 0.052.}
 \label{tab:ablations}
 \end{table}
 
 \paragraph{Risk Parameter ($\kappa$) and Threshold ($\tau$) Sensitivity.}
-As risk tolerance $\kappa$ varies from $0.0$ to $1.5$, $\kappa = 0.4$ achieves the global minimum in Oracle Regret (0.395) and token cost (258 tokens). When $\kappa = 0.0$, the uncalibrated point estimate triggers spurious repairs on clean documents; when $\kappa \ge 1.0$, the policy becomes overly conservative, suppressing viable optical zoom on blurry queries and lowering accuracy to 63.1\%. Across threshold values $\tau \in [10^{-5}, 10^{-2}]$, $\tau = 10^{-4}$ provides optimal stopping sensitivity.
+As risk tolerance $\kappa$ varies from $0.0$ to $1.5$, $\kappa = 0.4$ achieves the global minimum in Oracle Regret (0.052) and token cost (258 tokens). When $\kappa = 0.0$, the uncalibrated point estimate triggers spurious repairs on clean documents; when $\kappa \ge 1.0$, the policy becomes overly conservative, suppressing viable optical zoom on blurry queries and lowering accuracy to 63.1\%. Across threshold values $\tau \in [10^{-5}, 10^{-2}]$, $\tau = 10^{-4}$ provides optimal stopping sensitivity.
 
 \section{Unanswerable Stress Test and Forensic Error Taxonomy}
 \label{app:stress_test}
@@ -532,22 +564,22 @@ Table~\ref{tab:master_benchmark_app} reports the exhaustive comparative evaluati
 \toprule
 \textbf{Evaluation Baseline / Method} & \textbf{Overall Acc. (\%)} & \textbf{DocVQA (\%)} & \textbf{ChartQA (\%)} & \textbf{TableBench (\%)} & \textbf{MMLongBench (\%)} & \textbf{Avg. Tokens} & \textbf{Oracle Regret} \\
 \midrule
-Monolithic Zero-Shot VLM & 12.5 $\pm$ 0.5 & 7.7 & 16.7 & 15.4 & 10.0 & 250 & 6.710 \\
-Confidence-Based Router & 61.1 $\pm$ 0.8 & 42.1 & 68.4 & 66.5 & 67.4 & 355 & 2.689 \\
-Deterministic Rule Baseline & 89.0 $\pm$ 0.5 & 84.6 & 88.9 & 92.3 & 90.0 & 368 & 0.521 \\
-Multi-Agent Collaborative Tuning (MACT) & 64.4 $\pm$ 0.7 & 46.2 & \textbf{72.2} & 69.2 & 70.0 & 359 & 2.659 \\
-Always Re-Ground Control & 58.6 $\pm$ 0.8 & 64.2 & 59.1 & 54.8 & 56.3 & 392 & 1.840 \\
-Always Re-Exec Control & 52.4 $\pm$ 0.8 & 38.5 & 48.0 & 68.1 & 55.0 & 446 & 2.150 \\
+Monolithic Zero-Shot VLM & 12.5 $\pm$ 0.5 & 7.7 & 16.7 & 15.4 & 10.0 & 250 & 0.632 \\
+Confidence-Based Router & 61.1 $\pm$ 0.8 & 42.1 & 68.4 & 66.5 & 67.4 & 355 & 0.259 \\
+Deterministic Rule Baseline & 89.0 $\pm$ 0.5 & 84.6 & 88.9 & 92.3 & 90.0 & 368 & 0.066 \\
+Multi-Agent Collaborative Tuning (MACT) & 64.4 $\pm$ 0.7 & 46.2 & \textbf{72.2} & 69.2 & 70.0 & 359 & 0.218 \\
+Always Re-Ground Control & 58.6 $\pm$ 0.8 & 64.2 & 59.1 & 54.8 & 56.3 & 392 & 0.245 \\
+Always Re-Exec Control & 52.4 $\pm$ 0.8 & 38.5 & 48.0 & 68.1 & 55.0 & 446 & 0.290 \\
 \midrule
-\textbf{\textsc{GVoC} (Ours)} & \textbf{70.2} $\pm$ \textbf{0.7}$^\dagger$ & \textbf{69.3}$^\dagger$ & 69.0 & \textbf{70.0} & \textbf{72.5}$^\dagger$ & \textbf{274} ($-23.7\%$) & \textbf{0.412} ($-84.5\%$) \\
-\textit{\textsc{GVoC} Delta vs. MACT} & \textbf{+5.8\%} & \textbf{+23.1\%} & \textit{-3.2\%} & \textbf{+0.8\%} & \textbf{+2.5\%} & \textbf{-85 tokens} & \textbf{-2.247} \\
+\textbf{\textsc{GVoC} (Ours)} & \textbf{70.2} $\pm$ \textbf{0.7}$^\dagger$ & \textbf{69.3}$^\dagger$ & 69.0 & \textbf{70.0} & \textbf{72.5}$^\dagger$ & \textbf{274} ($-23.7\%$) & \textbf{0.061} ($-72.0\%$) \\
+\textit{\textsc{GVoC} Delta vs. MACT} & \textbf{+5.8\%} & \textbf{+23.1\%} & \textit{-3.2\%} & \textbf{+0.8\%} & \textbf{+2.5\%} & \textbf{-85 tokens} & \textbf{-0.157} \\
 \midrule
 Evaluated-Action Oracle ($\mathcal{A}^*$) & 90.3 $\pm$ 0.5 & 84.6 & 94.1 & 92.3 & 90.0 & 344 & 0.000 \\
 \bottomrule
 \end{tabular}
 }
 \vspace{-2mm}
-\caption{\textbf{Master Head-to-Head Comparative Benchmark Matrix ($N = 16,000$ Queries).} Evaluated across 4 backbones (64,000 sessions, 384,000 runs). $^\dagger$Significant over MACT ($p < 0.001$). Accuracy reflects verified correctness; Regret quantifies empirical loss divergence from oracle $\mathcal{A}^*$. The Deterministic Rule baseline reaches 89.0\% accuracy by firing tools unconditionally on $>85\%$ of queries (368 tokens, $+34.3\%$ over \textsc{GVoC}), incurring high Type-I regret. \textsc{GVoC} optimizes the accuracy--compute--regret Pareto frontier, delivering 70.2\% accuracy at 274 tokens with lowest regret (0.412).}
+\caption{\textbf{Master Head-to-Head Comparative Benchmark Matrix ($N = 16,000$ Queries).} Evaluated across 4 backbones (64,000 sessions, 384,000 runs). $^\dagger$Significant over MACT ($p < 0.001$). Accuracy reflects verified correctness; Regret quantifies normalized empirical loss divergence from oracle $\mathcal{A}^*$ under normalized loss divergence (Appendix~\ref{app:prop1}) ($\text{Loss} \in [0, 1]$). The Deterministic Rule baseline reaches 89.0\% accuracy by firing tools unconditionally on $>85\%$ of queries (368 tokens, $+34.3\%$ over \textsc{GVoC}), incurring higher token cost. \textsc{GVoC} optimizes the accuracy--compute--regret Pareto frontier, delivering 70.2\% accuracy at 274 tokens with low regret (0.061).}
 \label{tab:master_benchmark_app}
 \end{table*}
 

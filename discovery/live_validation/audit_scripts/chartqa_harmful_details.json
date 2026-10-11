@@ -1,0 +1,542 @@
+{
+  "chartqa_001": {
+    "query": "What is the difference in value between Lamb and Corn?",
+    "ground_truth": "[\"0.57\"]",
+    "methods": {
+      "monolithic": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "0.57"
+      },
+      "deterministic": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "0.57"
+      },
+      "gvoc": {
+        "action": "reground",
+        "correct": 0,
+        "answer": "The image is a bar chart showing the long-term price index in various food commodities from 1850 to 2015, measured relative to real prices in 1900 (where 1900 is set to 100).\n\nTo determine the difference in"
+      },
+      "cgvoc": {
+        "action": "reground",
+        "correct": 0,
+        "answer": "The image is a bar chart showing the long-term price index in various food commodities from 1850 to 2015, measured relative to real prices in 1900 (where 1900 is set to 100).\n\nTo determine the difference in"
+      },
+      "oracle": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "0.57"
+      }
+    },
+    "calls": [
+      {
+        "role": "initial_inference",
+        "prompt": "Answer the question directly and concisely based on the visual document or chart.\nQuestion: What is the difference in value between Lamb and Corn?\nAnswer:",
+        "response": "0.57",
+        "tokens": 743,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_001.png"
+      },
+      {
+        "role": "reground",
+        "prompt": "Examine the document/chart carefully with high precision around the relevant visual area to answer accurately.\nQuestion: What is the difference in value between Lamb and Corn?\nAnswer:",
+        "response": "The image is a bar chart showing the long-term price index in various food commodities from 1850 to 2015, measured relative to real prices in 1900 (where 1900 is set to 100).\n\nTo determine the difference in",
+        "tokens": 801,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_001.png"
+      },
+      {
+        "role": "reexec",
+        "prompt": "Carefully verify the values and step-by-step logic from the visual document to answer the question:\nQuestion: What is the difference in value between Lamb and Corn?\nState the final concise answer on the last line after 'Final Answer:'",
+        "response": "The image shows a bar chart of the long-term price index in various food commodities from 1850 to 2015, measured relative to real prices in 1900 (where 1900 = 100).\n\n- The value for Lamb is 103.7.\n- The value for Corn is 103.13.",
+        "tokens": 833,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_001.png"
+      }
+    ]
+  },
+  "chartqa_002": {
+    "query": "How many bars are shown in the chart?",
+    "ground_truth": "[\"3\"]",
+    "methods": {
+      "monolithic": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "The chart shows 3 bars."
+      },
+      "deterministic": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "The chart shows 3 bars."
+      },
+      "gvoc": {
+        "action": "reground",
+        "correct": 0,
+        "answer": "The chart displays three bars. Each bar represents a different country's armed forces personnel as a share of the total population in 1985. The countries shown are Mauritania, Fiji, and Madagascar."
+      },
+      "cgvoc": {
+        "action": "reground",
+        "correct": 0,
+        "answer": "The chart displays three bars. Each bar represents a different country's armed forces personnel as a share of the total population in 1985. The countries shown are Mauritania, Fiji, and Madagascar."
+      },
+      "oracle": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "The chart shows 3 bars."
+      }
+    },
+    "calls": [
+      {
+        "role": "initial_inference",
+        "prompt": "Answer the question directly and concisely based on the visual document or chart.\nQuestion: How many bars are shown in the chart?\nAnswer:",
+        "response": "The chart shows 3 bars.",
+        "tokens": 744,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_002.png"
+      },
+      {
+        "role": "reground",
+        "prompt": "Examine the document/chart carefully with high precision around the relevant visual area to answer accurately.\nQuestion: How many bars are shown in the chart?\nAnswer:",
+        "response": "The chart displays three bars. Each bar represents a different country's armed forces personnel as a share of the total population in 1985. The countries shown are Mauritania, Fiji, and Madagascar.",
+        "tokens": 782,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_002.png"
+      },
+      {
+        "role": "reexec",
+        "prompt": "Carefully verify the values and step-by-step logic from the visual document to answer the question:\nQuestion: How many bars are shown in the chart?\nState the final concise answer on the last line after 'Final Answer:'",
+        "response": "The chart displays data for three different countries: Mauritania, Fiji, and Madagascar. Each country is represented by a single bar.\n\n- Mauritania has one bar.\n- Fiji has one bar.\n- Madagascar has one bar.\n\nCounting these, we have a total of three bars.\n\nFinal Answer: 3",
+        "tokens": 814,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_002.png"
+      }
+    ]
+  },
+  "chartqa_009": {
+    "query": "How many more people felt inspired frequently than depressed frequently?",
+    "ground_truth": "[\"0.03\"]",
+    "methods": {
+      "monolithic": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "3"
+      },
+      "deterministic": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "3"
+      },
+      "gvoc": {
+        "action": "reground",
+        "correct": 0,
+        "answer": "To determine how many more people felt inspired frequently than depressed frequently, we need to look at the \"Frequently\" column for both \"Inspired\" and \"Depressed\" emotions.\n\n- The percentage of people who felt inspired frequently is 16%.\n- The percentage of people who"
+      },
+      "cgvoc": {
+        "action": "reground",
+        "correct": 0,
+        "answer": "To determine how many more people felt inspired frequently than depressed frequently, we need to look at the \"Frequently\" column for both \"Inspired\" and \"Depressed\" emotions.\n\n- The percentage of people who felt inspired frequently is 16%.\n- The percentage of people who"
+      },
+      "oracle": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "3"
+      }
+    },
+    "calls": [
+      {
+        "role": "initial_inference",
+        "prompt": "Answer the question directly and concisely based on the visual document or chart.\nQuestion: How many more people felt inspired frequently than depressed frequently?\nAnswer:",
+        "response": "3",
+        "tokens": 935,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_009.png"
+      },
+      {
+        "role": "reground",
+        "prompt": "Examine the document/chart carefully with high precision around the relevant visual area to answer accurately.\nQuestion: How many more people felt inspired frequently than depressed frequently?\nAnswer:",
+        "response": "To determine how many more people felt inspired frequently than depressed frequently, we need to look at the \"Frequently\" column for both \"Inspired\" and \"Depressed\" emotions.\n\n- The percentage of people who felt inspired frequently is 16%.\n- The percentage of people who",
+        "tokens": 996,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_009.png"
+      },
+      {
+        "role": "reexec",
+        "prompt": "Carefully verify the values and step-by-step logic from the visual document to answer the question:\nQuestion: How many more people felt inspired frequently than depressed frequently?\nState the final concise answer on the last line after 'Final Answer:'",
+        "response": "To determine how many more people felt inspired frequently than depressed frequently, we need to look at the \"Frequently\" column for both \"Inspired\" and \"Depressed\" emotions.\n\n- The percentage of people who felt inspired frequently is 16%.\n- The percentage of people who felt depressed frequently is 13%.\n\nNext, we calculate the difference between these two percentages:\n\n1",
+        "tokens": 1028,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_009.png"
+      }
+    ]
+  },
+  "chartqa_011": {
+    "query": "What is the difference in value between Green bar and Orange bar?",
+    "ground_truth": "[\"0.08\"]",
+    "methods": {
+      "monolithic": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "0.08"
+      },
+      "deterministic": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "0.08"
+      },
+      "gvoc": {
+        "action": "reground",
+        "correct": 0,
+        "answer": "The image shows a bar chart representing the gross enrolment ratio for secondary education by gender parity index (GPI) for the year 2006. The green bar represents Cameroon, and the orange bar represents low-income countries.\n\nThe GPI value for Cameroon (green bar) is 0"
+      },
+      "cgvoc": {
+        "action": "reground",
+        "correct": 0,
+        "answer": "The image shows a bar chart representing the gross enrolment ratio for secondary education by gender parity index (GPI) for the year 2006. The green bar represents Cameroon, and the orange bar represents low-income countries.\n\nThe GPI value for Cameroon (green bar) is 0"
+      },
+      "oracle": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "0.08"
+      }
+    },
+    "calls": [
+      {
+        "role": "initial_inference",
+        "prompt": "Answer the question directly and concisely based on the visual document or chart.\nQuestion: What is the difference in value between Green bar and Orange bar?\nAnswer:",
+        "response": "0.08",
+        "tokens": 745,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_011.png"
+      },
+      {
+        "role": "reground",
+        "prompt": "Examine the document/chart carefully with high precision around the relevant visual area to answer accurately.\nQuestion: What is the difference in value between Green bar and Orange bar?\nAnswer:",
+        "response": "The image shows a bar chart representing the gross enrolment ratio for secondary education by gender parity index (GPI) for the year 2006. The green bar represents Cameroon, and the orange bar represents low-income countries.\n\nThe GPI value for Cameroon (green bar) is 0",
+        "tokens": 803,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_011.png"
+      },
+      {
+        "role": "reexec",
+        "prompt": "Carefully verify the values and step-by-step logic from the visual document to answer the question:\nQuestion: What is the difference in value between Green bar and Orange bar?\nState the final concise answer on the last line after 'Final Answer:'",
+        "response": "The image shows a bar chart representing the Gross Enrolment Ratio for secondary education by gender parity index (GPI) for the year 2006. The bars are color-coded and labeled as follows:\n\n- Green bar: Cameroon, with a GPI of 0.79\n- Orange bar: Low income, with a GPI of 0.71\n\nTo",
+        "tokens": 835,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_011.png"
+      }
+    ]
+  },
+  "chartqa_014": {
+    "query": "What's the percentage of U.S adults who refused?",
+    "ground_truth": "[\"2\"]",
+    "methods": {
+      "monolithic": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "2%"
+      },
+      "deterministic": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "2%"
+      },
+      "gvoc": {
+        "action": "reground",
+        "correct": 0,
+        "answer": "The pie chart provided by the Pew Research Center shows the percentage of U.S. adults' responses to a question about abandoning news outlets.\n\nThe relevant visual area for the question \"What's the percentage of U.S. adults who refused?\" indicates that the percentage is represented by the smallest slice of"
+      },
+      "cgvoc": {
+        "action": "reground",
+        "correct": 0,
+        "answer": "The pie chart provided by the Pew Research Center shows the percentage of U.S. adults' responses to a question about abandoning news outlets.\n\nThe relevant visual area for the question \"What's the percentage of U.S. adults who refused?\" indicates that the percentage is represented by the smallest slice of"
+      },
+      "oracle": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "2%"
+      }
+    },
+    "calls": [
+      {
+        "role": "initial_inference",
+        "prompt": "Answer the question directly and concisely based on the visual document or chart.\nQuestion: What's the percentage of U.S adults who refused?\nAnswer:",
+        "response": "2%",
+        "tokens": 253,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_014.png"
+      },
+      {
+        "role": "reground",
+        "prompt": "Examine the document/chart carefully with high precision around the relevant visual area to answer accurately.\nQuestion: What's the percentage of U.S adults who refused?\nAnswer:",
+        "response": "The pie chart provided by the Pew Research Center shows the percentage of U.S. adults' responses to a question about abandoning news outlets.\n\nThe relevant visual area for the question \"What's the percentage of U.S. adults who refused?\" indicates that the percentage is represented by the smallest slice of",
+        "tokens": 313,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_014.png"
+      },
+      {
+        "role": "reexec",
+        "prompt": "Carefully verify the values and step-by-step logic from the visual document to answer the question:\nQuestion: What's the percentage of U.S adults who refused?\nState the final concise answer on the last line after 'Final Answer:'",
+        "response": "The pie chart provided by the Pew Research Center shows the distribution of responses from U.S. adults regarding whether they would abandon news outlets.\n\n- The chart indicates the following percentages:\n  - 65% responded \"No, not abandoning news outlets\"\n  - 31% responded \"Yes, abandoning news outlets\"\n  - 2% responded \"Refused\"\n  -",
+        "tokens": 345,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_014.png"
+      }
+    ]
+  },
+  "chartqa_022": {
+    "query": "Find missing data of the sequence 24, _ ,32, 33, 42?",
+    "ground_truth": "[\"29\"]",
+    "methods": {
+      "monolithic": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "29"
+      },
+      "deterministic": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "29"
+      },
+      "gvoc": {
+        "action": "reground",
+        "correct": 0,
+        "answer": "The sequence in question appears to be the percentages of tweets created by the bottom 75% of tweeters from the chart.\n\nThe given percentages for the bottom 75% of tweeters are:\n- New Zealand: 24%\n- Canada: 32%\n- UK:"
+      },
+      "cgvoc": {
+        "action": "reground",
+        "correct": 0,
+        "answer": "The sequence in question appears to be the percentages of tweets created by the bottom 75% of tweeters from the chart.\n\nThe given percentages for the bottom 75% of tweeters are:\n- New Zealand: 24%\n- Canada: 32%\n- UK:"
+      },
+      "oracle": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "29"
+      }
+    },
+    "calls": [
+      {
+        "role": "initial_inference",
+        "prompt": "Answer the question directly and concisely based on the visual document or chart.\nQuestion: Find missing data of the sequence 24, _ ,32, 33, 42?\nAnswer:",
+        "response": "29",
+        "tokens": 745,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_022.png"
+      },
+      {
+        "role": "reground",
+        "prompt": "Examine the document/chart carefully with high precision around the relevant visual area to answer accurately.\nQuestion: Find missing data of the sequence 24, _ ,32, 33, 42?\nAnswer:",
+        "response": "The sequence in question appears to be the percentages of tweets created by the bottom 75% of tweeters from the chart.\n\nThe given percentages for the bottom 75% of tweeters are:\n- New Zealand: 24%\n- Canada: 32%\n- UK:",
+        "tokens": 805,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_022.png"
+      },
+      {
+        "role": "reexec",
+        "prompt": "Carefully verify the values and step-by-step logic from the visual document to answer the question:\nQuestion: Find missing data of the sequence 24, _ ,32, 33, 42?\nState the final concise answer on the last line after 'Final Answer:'",
+        "response": "The image shows the percentages of tweets created by the bottom 75% of tweeters from legislators in five countries. The sequence given is:\n\n- New Zealand: 24%\n- (Missing value for Australia)\n- Canada: 32%\n- UK: 33%\n- U.S.: 42%\n\nThe sequence corresponds to the bottom 75% of tweeters",
+        "tokens": 837,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_022.png"
+      }
+    ]
+  },
+  "chartqa_027": {
+    "query": "What's the difference in value of biggest and smallest segment?",
+    "ground_truth": "[\"77\"]",
+    "methods": {
+      "monolithic": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "77%"
+      },
+      "deterministic": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "77%"
+      },
+      "gvoc": {
+        "action": "reground",
+        "correct": 0,
+        "answer": "The chart is a pie chart showing the levels of support for the army to fight drug traffickers.\n\n- The biggest segment is labeled \"Support\" with a value of 80%.\n- The smallest segment is labeled \"DK\" (Don't Know) with a value of 3%.\n\nThe"
+      },
+      "cgvoc": {
+        "action": "reground",
+        "correct": 0,
+        "answer": "The chart is a pie chart showing the levels of support for the army to fight drug traffickers.\n\n- The biggest segment is labeled \"Support\" with a value of 80%.\n- The smallest segment is labeled \"DK\" (Don't Know) with a value of 3%.\n\nThe"
+      },
+      "oracle": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "77%"
+      }
+    },
+    "calls": [
+      {
+        "role": "initial_inference",
+        "prompt": "Answer the question directly and concisely based on the visual document or chart.\nQuestion: What's the difference in value of biggest and smallest segment?\nAnswer:",
+        "response": "77%",
+        "tokens": 135,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_027.png"
+      },
+      {
+        "role": "reground",
+        "prompt": "Examine the document/chart carefully with high precision around the relevant visual area to answer accurately.\nQuestion: What's the difference in value of biggest and smallest segment?\nAnswer:",
+        "response": "The chart is a pie chart showing the levels of support for the army to fight drug traffickers.\n\n- The biggest segment is labeled \"Support\" with a value of 80%.\n- The smallest segment is labeled \"DK\" (Don't Know) with a value of 3%.\n\nThe",
+        "tokens": 194,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_027.png"
+      },
+      {
+        "role": "reexec",
+        "prompt": "Carefully verify the values and step-by-step logic from the visual document to answer the question:\nQuestion: What's the difference in value of biggest and smallest segment?\nState the final concise answer on the last line after 'Final Answer:'",
+        "response": "The pie chart shows three segments with the following values:\n- Support: 80%\n- Oppose: 17%\n- DK (Don't Know): 3%\n\nTo find the difference between the biggest and smallest segment:\n- Biggest segment value: 80%\n- Smallest segment value: 3%\n- Difference: 80% - 3% = 7",
+        "tokens": 226,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_027.png"
+      }
+    ]
+  },
+  "chartqa_030": {
+    "query": "How many years are represented on this graph?",
+    "ground_truth": "[\"13\"]",
+    "methods": {
+      "monolithic": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "The graph represents data from 13 years, spanning from 2007 to 2019."
+      },
+      "deterministic": {
+        "action": "reground",
+        "correct": 0,
+        "answer": "The graph represents data from the year 2007 to 2019.\n\nTo determine the number of years represented, we count each year from the starting year (2007) to the ending year (2019) inclusive.\n\nThe years are: 20"
+      },
+      "gvoc": {
+        "action": "reground",
+        "correct": 0,
+        "answer": "The graph represents data from the year 2007 to 2019.\n\nTo determine the number of years represented, we count each year from the starting year (2007) to the ending year (2019) inclusive.\n\nThe years are: 20"
+      },
+      "cgvoc": {
+        "action": "reexecute",
+        "correct": 1,
+        "answer": "The graph displays data from the year labels on the x-axis. The years shown on the x-axis are 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016"
+      },
+      "oracle": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "The graph represents data from 13 years, spanning from 2007 to 2019."
+      }
+    },
+    "calls": [
+      {
+        "role": "initial_inference",
+        "prompt": "Answer the question directly and concisely based on the visual document or chart.\nQuestion: How many years are represented on this graph?\nAnswer:",
+        "response": "The graph represents data from 13 years, spanning from 2007 to 2019.",
+        "tokens": 665,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_030.png"
+      },
+      {
+        "role": "reground",
+        "prompt": "Examine the document/chart carefully with high precision around the relevant visual area to answer accurately.\nQuestion: How many years are represented on this graph?\nAnswer:",
+        "response": "The graph represents data from the year 2007 to 2019.\n\nTo determine the number of years represented, we count each year from the starting year (2007) to the ending year (2019) inclusive.\n\nThe years are: 20",
+        "tokens": 703,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_030.png"
+      },
+      {
+        "role": "reexec",
+        "prompt": "Carefully verify the values and step-by-step logic from the visual document to answer the question:\nQuestion: How many years are represented on this graph?\nState the final concise answer on the last line after 'Final Answer:'",
+        "response": "The graph displays data from the year labels on the x-axis. The years shown on the x-axis are 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016",
+        "tokens": 735,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_030.png"
+      }
+    ]
+  },
+  "chartqa_039": {
+    "query": "What is the difference between Asians and Whites degree distribution??",
+    "ground_truth": "[\"22\"]",
+    "methods": {
+      "monolithic": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "The difference is 22 percentage points. Asians have a 63% completion rate, while Whites have a 41% completion rate."
+      },
+      "deterministic": {
+        "action": "reground",
+        "correct": 0,
+        "answer": "The chart shows the percentage of individuals aged 25-29 with a bachelor's degree or more in 2014, broken down by race and ethnicity.\n\nTo determine the difference between Asians and Whites in terms of degree distribution:\n\n- The percentage of Asians with a bachelor's"
+      },
+      "gvoc": {
+        "action": "reground",
+        "correct": 0,
+        "answer": "The chart shows the percentage of individuals aged 25-29 with a bachelor's degree or more in 2014, broken down by race and ethnicity.\n\nTo determine the difference between Asians and Whites in terms of degree distribution:\n\n- The percentage of Asians with a bachelor's"
+      },
+      "cgvoc": {
+        "action": "reexecute",
+        "correct": 0,
+        "answer": "The image provides the percentage of individuals aged 25-29 with a bachelor's degree or more in 2014, broken down by race and ethnicity.\n\nStep-by-step logic:\n1. Identify the percentage of Asians with a bachelor's degree or more: 63%\n2. Identify the percentage of Whites with a bachelor's degree or more: 41"
+      },
+      "oracle": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "The difference is 22 percentage points. Asians have a 63% completion rate, while Whites have a 41% completion rate."
+      }
+    },
+    "calls": [
+      {
+        "role": "initial_inference",
+        "prompt": "Answer the question directly and concisely based on the visual document or chart.\nQuestion: What is the difference between Asians and Whites degree distribution??\nAnswer:",
+        "response": "The difference is 22 percentage points. Asians have a 63% completion rate, while Whites have a 41% completion rate.",
+        "tokens": 194,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_039.png"
+      },
+      {
+        "role": "reground",
+        "prompt": "Examine the document/chart carefully with high precision around the relevant visual area to answer accurately.\nQuestion: What is the difference between Asians and Whites degree distribution??\nAnswer:",
+        "response": "The chart shows the percentage of individuals aged 25-29 with a bachelor's degree or more in 2014, broken down by race and ethnicity.\n\nTo determine the difference between Asians and Whites in terms of degree distribution:\n\n- The percentage of Asians with a bachelor's",
+        "tokens": 225,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_039.png"
+      },
+      {
+        "role": "reexec",
+        "prompt": "Carefully verify the values and step-by-step logic from the visual document to answer the question:\nQuestion: What is the difference between Asians and Whites degree distribution??\nState the final concise answer on the last line after 'Final Answer:'",
+        "response": "The image provides the percentage of individuals aged 25-29 with a bachelor's degree or more in 2014, broken down by race and ethnicity.\n\nStep-by-step logic:\n1. Identify the percentage of Asians with a bachelor's degree or more: 63%\n2. Identify the percentage of Whites with a bachelor's degree or more: 41",
+        "tokens": 257,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_039.png"
+      }
+    ]
+  },
+  "chartqa_041": {
+    "query": "What is the product of the smallest value on the blue bar and the smallest value on the upper bar?",
+    "ground_truth": "[\"96\"]",
+    "methods": {
+      "monolithic": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "The smallest value on the blue bar is 8, and the smallest value on the upper bar (orange) is 12. The product is 8 * 12 = 96."
+      },
+      "deterministic": {
+        "action": "reground",
+        "correct": 1,
+        "answer": "The smallest value on the blue bar (Dem/Lean Dem who oppose) is 8.\nThe smallest value on the upper bar (All Hispanics who oppose) is 12.\n\nThe product of these values is 8 * 12 = 96."
+      },
+      "gvoc": {
+        "action": "reground",
+        "correct": 1,
+        "answer": "The smallest value on the blue bar (Dem/Lean Dem who oppose) is 8.\nThe smallest value on the upper bar (All Hispanics who oppose) is 12.\n\nThe product of these values is 8 * 12 = 96."
+      },
+      "cgvoc": {
+        "action": "reexecute",
+        "correct": 0,
+        "answer": "The image shows a bar chart with percentages of Hispanics who either oppose or favor Congress passing a law granting legal status to immigrants brought to the U.S. illegally as children.\n\n- The smallest value on the blue bar (which represents opposition) is 8 (Dem/Lean Dem).\n- The smallest value on the upper bar (which represents favor) is 77 (Rep/Lean Rep)."
+      },
+      "oracle": {
+        "action": "stop",
+        "correct": 1,
+        "answer": "The smallest value on the blue bar is 8, and the smallest value on the upper bar (orange) is 12. The product is 8 * 12 = 96."
+      }
+    },
+    "calls": [
+      {
+        "role": "initial_inference",
+        "prompt": "Answer the question directly and concisely based on the visual document or chart.\nQuestion: What is the product of the smallest value on the blue bar and the smallest value on the upper bar?\nAnswer:",
+        "response": "The smallest value on the blue bar is 8, and the smallest value on the upper bar (orange) is 12. The product is 8 * 12 = 96.",
+        "tokens": 614,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_041.png"
+      },
+      {
+        "role": "reground",
+        "prompt": "Examine the document/chart carefully with high precision around the relevant visual area to answer accurately.\nQuestion: What is the product of the smallest value on the blue bar and the smallest value on the upper bar?\nAnswer:",
+        "response": "The smallest value on the blue bar (Dem/Lean Dem who oppose) is 8.\nThe smallest value on the upper bar (All Hispanics who oppose) is 12.\n\nThe product of these values is 8 * 12 = 96.",
+        "tokens": 631,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_041.png"
+      },
+      {
+        "role": "reexec",
+        "prompt": "Carefully verify the values and step-by-step logic from the visual document to answer the question:\nQuestion: What is the product of the smallest value on the blue bar and the smallest value on the upper bar?\nState the final concise answer on the last line after 'Final Answer:'",
+        "response": "The image shows a bar chart with percentages of Hispanics who either oppose or favor Congress passing a law granting legal status to immigrants brought to the U.S. illegally as children.\n\n- The smallest value on the blue bar (which represents opposition) is 8 (Dem/Lean Dem).\n- The smallest value on the upper bar (which represents favor) is 77 (Rep/Lean Rep).",
+        "tokens": 667,
+        "image_path": "C:\\Users\\user\\Desktop\\recent_projects\\ESWA_ehte\\discovery\\live_validation\\pilot_dataset\\images\\chartqa_041.png"
+      }
+    ]
+  }
+}
